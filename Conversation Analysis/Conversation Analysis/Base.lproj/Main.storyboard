@@ -17,7 +17,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="n47-Fv-SNU"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="list.dash" catalog="system" landscapeImage="list.dash" selectedImage="list.dash" id="JOl-H2-KgM"/>
+                    <tabBarItem key="tabBarItem" title="" image="list.dash" catalog="system" landscapeImage="list.dash" largeContentSizeImage="list.dash" selectedImage="list.dash" id="JOl-H2-KgM">
+                        <inset key="largeContentSizeImageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-1"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="toT-wB-jEA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -33,7 +35,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="HmL-x7-Mik"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="mic.fill" catalog="system" landscapeImage="mic.fill" selectedImage="mic.fill" id="qpR-4N-TYB"/>
+                    <tabBarItem key="tabBarItem" title="" image="mic.fill" catalog="system" landscapeImage="mic.fill" largeContentSizeImage="mic.fill" selectedImage="mic.fill" id="qpR-4N-TYB">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ih3-e3-YCI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
