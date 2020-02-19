@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		007149D223FCC77D0025E580 /* RecordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007149D123FCC77D0025E580 /* RecordingViewController.swift */; };
+		007149D423FCC9780025E580 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007149D323FCC9780025E580 /* ListViewController.swift */; };
 		B26A806923F30879009DD7D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26A806823F30879009DD7D8 /* AppDelegate.swift */; };
 		B26A806B23F30879009DD7D8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26A806A23F30879009DD7D8 /* SceneDelegate.swift */; };
 		B26A806D23F30879009DD7D8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26A806C23F30879009DD7D8 /* ViewController.swift */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		007149D123FCC77D0025E580 /* RecordingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingViewController.swift; sourceTree = "<group>"; };
+		007149D323FCC9780025E580 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		B26A806523F30879009DD7D8 /* Conversation Analysis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Conversation Analysis.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B26A806823F30879009DD7D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B26A806A23F30879009DD7D8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +107,8 @@
 				B26A806A23F30879009DD7D8 /* SceneDelegate.swift */,
 				B26A806C23F30879009DD7D8 /* ViewController.swift */,
 				B26A806E23F30879009DD7D8 /* Main.storyboard */,
+				007149D123FCC77D0025E580 /* RecordingViewController.swift */,
+				007149D323FCC9780025E580 /* ListViewController.swift */,
 				B26A807123F3087C009DD7D8 /* Assets.xcassets */,
 				B26A807323F3087C009DD7D8 /* LaunchScreen.storyboard */,
 				B26A807623F3087C009DD7D8 /* Info.plist */,
@@ -259,8 +265,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				007149D223FCC77D0025E580 /* RecordingViewController.swift in Sources */,
 				B26A806D23F30879009DD7D8 /* ViewController.swift in Sources */,
 				B26A806923F30879009DD7D8 /* AppDelegate.swift in Sources */,
+				007149D423FCC9780025E580 /* ListViewController.swift in Sources */,
 				B26A806B23F30879009DD7D8 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
