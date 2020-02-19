@@ -17,7 +17,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="n47-Fv-SNU"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" selectedImage="list.dash" catalog="system" id="JOl-H2-KgM"/>
+                    <tabBarItem key="tabBarItem" title="" image="list.dash" catalog="system" landscapeImage="list.dash" selectedImage="list.dash" id="JOl-H2-KgM"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="toT-wB-jEA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -33,7 +33,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="HmL-x7-Mik"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" selectedImage="mic.fill" catalog="system" id="qpR-4N-TYB"/>
+                    <tabBarItem key="tabBarItem" title="" image="mic.fill" catalog="system" landscapeImage="mic.fill" selectedImage="mic.fill" id="qpR-4N-TYB"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ih3-e3-YCI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -46,8 +46,8 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2wC-Yd-BcD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" red="0.051697465821145178" green="0.43206694162436543" blue="0.022842561120390514" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.047107490148148093" green="0.38408153553299484" blue="0.044923218488770754" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="0.71702490480000003" green="0.69409088460000001" blue="0.130063921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="Nrq-t5-zYU" kind="relationship" relationship="viewControllers" id="GeX-59-hw6"/>
