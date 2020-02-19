@@ -13,7 +13,7 @@ class RecordingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // print to console to alert whether it's view has been loaded
+        // print to console to alert that view has been loaded
         print("RecordingViewController loaded its view")
     }
     

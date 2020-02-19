@@ -50,6 +50,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2wC-Yd-BcD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <rect key="contentStretch" x="0.0" y="0.0" width="0.55000000000000004" height="1"/>
                         <color key="barTintColor" red="0.047107490148148093" green="0.38408153553299484" blue="0.044923218488770754" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="selectedImageTintColor" red="0.71702490480000003" green="0.69409088460000001" blue="0.130063921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
