@@ -14,12 +14,13 @@ class ListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // print to console to alert that view has been loaded
-        print("ListViewController loaded its view (first time)")
+        print("ListViewController loaded (first time)")
     }
     
     // run everytime a view is loaded
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
         print("ListViewController loaded")
     }
     

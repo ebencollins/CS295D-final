@@ -1,27 +1,27 @@
 //
-//  RecordingViewController.swift
+//  DetailViewController.swift
 //  Conversation Analysis
 //
-//  Created by devon on 2/18/20.
+//  Created by devon on 2/21/20.
 //  Copyright © 2020 conversation-analysis. All rights reserved.
 //
 
 import UIKit
 
-class RecordingViewController: UIViewController {
-    
+class DetailViewController: UIViewController {
+
     // run when a view is loaded for the first time
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("RecordingViewController loaded (first time)")
+        print("DetailViewController loaded (first time)")
     }
     
     // run everytime a view is loaded
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        print("RecordingViewController loaded")
+        print("DetailViewController loaded")
     }
-    
+
 }

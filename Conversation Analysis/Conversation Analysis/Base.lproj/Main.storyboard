@@ -66,7 +66,7 @@
         <scene sceneID="yRF-TG-jeD">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NIl-4S-n3U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <viewController title="Detail View" id="DWJ-Q6-5Sv" sceneMemberID="viewController">
+                <viewController title="Detail View" id="DWJ-Q6-5Sv" customClass="DetailViewController" customModule="Conversation_Analysis" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wr6-sL-yQh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -106,7 +106,7 @@
         <!--Processing-->
         <scene sceneID="hKH-0S-9lo">
             <objects>
-                <viewController title="Processing" id="Jpf-2B-sZi" sceneMemberID="viewController">
+                <viewController title="Processing" id="Jpf-2B-sZi" customClass="ProcessingViewController" customModule="Conversation_Analysis" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ElR-ex-tMo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
