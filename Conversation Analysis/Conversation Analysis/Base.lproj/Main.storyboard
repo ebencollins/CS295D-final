@@ -65,7 +65,6 @@
         <!--Detail View-->
         <scene sceneID="yRF-TG-jeD">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NIl-4S-n3U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController title="Detail View" id="DWJ-Q6-5Sv" customClass="DetailViewController" customModule="Conversation_Analysis" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wr6-sL-yQh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -100,8 +99,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="86d-Gv-omM"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NIl-4S-n3U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1130" y="258"/>
+            <point key="canvasLocation" x="2188" y="258"/>
         </scene>
         <!--Processing-->
         <scene sceneID="hKH-0S-9lo">
@@ -189,7 +189,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HLq-Ns-I1Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="576.81159420289862" y="1043.9732142857142"/>
+            <point key="canvasLocation" x="1206" y="-474"/>
         </scene>
     </scenes>
     <resources>
