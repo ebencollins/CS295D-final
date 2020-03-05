@@ -1,6 +1,6 @@
 //
 //  RecordingViewController.swift
-//  Conversation Analysis
+//  Conversation Analysiseb
 //
 //  Created by devon on 2/18/20.
 //  Copyright © 2020 conversation-analysis. All rights reserved.
@@ -58,7 +58,6 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
             counter = 0.0
                         
         }
-        
     }
     
     @IBAction func playAudio(_ sender: UIButton) {

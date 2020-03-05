@@ -18,6 +18,9 @@
 		B26A807523F3087C009DD7D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B26A807323F3087C009DD7D8 /* LaunchScreen.storyboard */; };
 		B26A808023F3087C009DD7D8 /* Conversation_AnalysisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26A807F23F3087C009DD7D8 /* Conversation_AnalysisTests.swift */; };
 		B26A808B23F3087C009DD7D8 /* Conversation_AnalysisUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26A808A23F3087C009DD7D8 /* Conversation_AnalysisUITests.swift */; };
+		B2A3B6AF2410AC03002A6F3F /* EssentiaWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = B2A3B6AE2410AC03002A6F3F /* EssentiaWrapper.mm */; };
+		B2B043972403040300795061 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B043962403040300795061 /* DetailViewController.swift */; };
+		B2E954EA240C97FC00994F2A /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2E954E9240C97FC00994F2A /* Accelerate.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +58,16 @@
 		B26A808623F3087C009DD7D8 /* Conversation AnalysisUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Conversation AnalysisUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B26A808A23F3087C009DD7D8 /* Conversation_AnalysisUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversation_AnalysisUITests.swift; sourceTree = "<group>"; };
 		B26A808C23F3087C009DD7D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B2A3B6AB24102EAF002A6F3F /* libyaml.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libyaml.a; path = ../libs/lib/libyaml.a; sourceTree = "<group>"; };
+		B2A3B6AD2410AC03002A6F3F /* EssentiaWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EssentiaWrapper.h; sourceTree = "<group>"; };
+		B2A3B6AE2410AC03002A6F3F /* EssentiaWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EssentiaWrapper.mm; sourceTree = "<group>"; };
+		B2B043962403040300795061 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		B2B043982403049000795061 /* Conversation Analysis-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Conversation Analysis-Bridging-Header.h"; sourceTree = "<group>"; };
+		B2B0439D2403057E00795061 /* libessentia.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libessentia.a; path = ../essentia/build/src/libessentia.a; sourceTree = "<group>"; };
+		B2B0439E2403058B00795061 /* essentia.pc */ = {isa = PBXFileReference; lastKnownFileType = text; name = essentia.pc; path = ../essentia/build/essentia.pc; sourceTree = "<group>"; };
+		B2B0439F2403059300795061 /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; name = src; path = ../essentia/build/src; sourceTree = "<group>"; };
+		B2B043A12404813800795061 /* libessentia.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libessentia.a; path = ../libs/lib/libessentia.a; sourceTree = "<group>"; };
+		B2E954E9240C97FC00994F2A /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2E954EA240C97FC00994F2A /* Accelerate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +103,7 @@
 				B26A807E23F3087C009DD7D8 /* Conversation AnalysisTests */,
 				B26A808923F3087C009DD7D8 /* Conversation AnalysisUITests */,
 				B26A806623F30879009DD7D8 /* Products */,
+				B2B0439C2403057E00795061 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -115,6 +130,10 @@
 				B26A807123F3087C009DD7D8 /* Assets.xcassets */,
 				B26A807323F3087C009DD7D8 /* LaunchScreen.storyboard */,
 				B26A807623F3087C009DD7D8 /* Info.plist */,
+				B2B043962403040300795061 /* DetailViewController.swift */,
+				B2B043982403049000795061 /* Conversation Analysis-Bridging-Header.h */,
+				B2A3B6AD2410AC03002A6F3F /* EssentiaWrapper.h */,
+				B2A3B6AE2410AC03002A6F3F /* EssentiaWrapper.mm */,
 			);
 			path = "Conversation Analysis";
 			sourceTree = "<group>";
@@ -135,6 +154,19 @@
 				B26A808C23F3087C009DD7D8 /* Info.plist */,
 			);
 			path = "Conversation AnalysisUITests";
+			sourceTree = "<group>";
+		};
+		B2B0439C2403057E00795061 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B2A3B6AB24102EAF002A6F3F /* libyaml.a */,
+				B2E954E9240C97FC00994F2A /* Accelerate.framework */,
+				B2B043A12404813800795061 /* libessentia.a */,
+				B2B0439F2403059300795061 /* src */,
+				B2B0439E2403058B00795061 /* essentia.pc */,
+				B2B0439D2403057E00795061 /* libessentia.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,6 +237,7 @@
 				TargetAttributes = {
 					B26A806423F30879009DD7D8 = {
 						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1130;
 					};
 					B26A807A23F3087C009DD7D8 = {
 						CreatedOnToolsVersion = 11.3.1;
@@ -271,6 +304,8 @@
 				007149D223FCC77D0025E580 /* RecordingViewController.swift in Sources */,
 				B26A806923F30879009DD7D8 /* AppDelegate.swift in Sources */,
 				00D884232400540B00DB1FDE /* ProcessingViewController.swift in Sources */,
+				B2A3B6AF2410AC03002A6F3F /* EssentiaWrapper.mm in Sources */,
+				B2B043972403040300795061 /* DetailViewController.swift in Sources */,
 				007149D423FCC9780025E580 /* ListViewController.swift in Sources */,
 				B26A806B23F30879009DD7D8 /* SceneDelegate.swift in Sources */,
 				00CE0B752408123400AC093B /* DetailViewController.swift in Sources */,
@@ -378,10 +413,19 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					../libs/include,
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					../libs/lib,
+				);
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-lessentia";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -432,9 +476,18 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					../libs/include,
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					../libs/lib,
+				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "-lessentia";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -446,7 +499,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PN9YMD99V6;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Conversation Analysis/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -454,6 +510,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.uvm.cs295d.conversation-analysis.Conversation-Analysis";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Conversation Analysis/Conversation Analysis-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -463,7 +521,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PN9YMD99V6;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Conversation Analysis/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -471,6 +532,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.uvm.cs295d.conversation-analysis.Conversation-Analysis";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Conversation Analysis/Conversation Analysis-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -480,6 +542,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Conversation AnalysisTests/Info.plist";
@@ -489,11 +552,14 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.uvm.cs295d.conversation-analysis.Conversation-AnalysisTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
+				SYSTEM_HEADER_SEARCH_PATHS = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Conversation Analysis.app/Conversation Analysis";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
@@ -501,6 +567,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Conversation AnalysisTests/Info.plist";
@@ -510,11 +577,14 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.uvm.cs295d.conversation-analysis.Conversation-AnalysisTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
+				SYSTEM_HEADER_SEARCH_PATHS = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Conversation Analysis.app/Conversation Analysis";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};
