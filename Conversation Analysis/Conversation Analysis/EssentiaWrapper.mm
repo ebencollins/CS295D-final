@@ -39,10 +39,10 @@ using namespace std;
     ExtractedAudioData* data = [[ExtractedAudioData alloc] init];
     
     // parameters
-    int SAMPLE_RATE = 44100;
     int FRAME_SIZE = 2048;
     int HOP_SIZE = 1024;
-    int NUM_BANDS = 96 * 2;
+    int NUM_BANDS = 48;
+    int NUM_MFCC_COEFFS = 20;
     
     essentia::init();
     
@@ -51,8 +51,8 @@ using namespace std;
     Algorithm* fc = factory.create("FrameCutter", "frameSize", FRAME_SIZE, "hopSize", HOP_SIZE);
     Algorithm* w = factory.create("Windowing", "type", "blackmanharris62");
     Algorithm* spec = factory.create("Spectrum");
-    Algorithm* mfcc = factory.create("MFCC");
-    Algorithm* melbands = factory.create("MelBands", "numberBands", NUM_BANDS, "log", true);
+    Algorithm* mfcc = factory.create("MFCC", "numberBands", NUM_BANDS, "numberCoefficients", NUM_MFCC_COEFFS);
+    Algorithm* melbands = factory.create("MelBands", "numberBands", NUM_BANDS * 4, "log", false);
     
     vector<Real> frame, windowed_frame, spectrum, mfcc_coeffs, mfcc_bands, melbands_data;
     fc->input("signal").set(audio_buffer);

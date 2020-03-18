@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,6 +19,11 @@
 		B26A808023F3087C009DD7D8 /* Conversation_AnalysisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26A807F23F3087C009DD7D8 /* Conversation_AnalysisTests.swift */; };
 		B26A808B23F3087C009DD7D8 /* Conversation_AnalysisUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26A808A23F3087C009DD7D8 /* Conversation_AnalysisUITests.swift */; };
 		B2A3B6AF2410AC03002A6F3F /* EssentiaWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = B2A3B6AE2410AC03002A6F3F /* EssentiaWrapper.mm */; };
+		B2A892D9241582E9009558B4 /* QuartzRenderer in Frameworks */ = {isa = PBXBuildFile; productRef = B2A892D8241582E9009558B4 /* QuartzRenderer */; };
+		B2A892DB241582E9009558B4 /* SVGRenderer in Frameworks */ = {isa = PBXBuildFile; productRef = B2A892DA241582E9009558B4 /* SVGRenderer */; };
+		B2A892DD241582E9009558B4 /* SwiftPlot in Frameworks */ = {isa = PBXBuildFile; productRef = B2A892DC241582E9009558B4 /* SwiftPlot */; };
+		B2A892DF241582E9009558B4 /* AGGRenderer in Frameworks */ = {isa = PBXBuildFile; productRef = B2A892DE241582E9009558B4 /* AGGRenderer */; };
+		B2A892E12415871E009558B4 /* libfreetype.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2A892E024158710009558B4 /* libfreetype.a */; };
 		B2B043972403040300795061 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B043962403040300795061 /* DetailViewController.swift */; };
 		B2E954EA240C97FC00994F2A /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2E954E9240C97FC00994F2A /* Accelerate.framework */; };
 /* End PBXBuildFile section */
@@ -61,6 +66,7 @@
 		B2A3B6AB24102EAF002A6F3F /* libyaml.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libyaml.a; path = ../libs/lib/libyaml.a; sourceTree = "<group>"; };
 		B2A3B6AD2410AC03002A6F3F /* EssentiaWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EssentiaWrapper.h; sourceTree = "<group>"; };
 		B2A3B6AE2410AC03002A6F3F /* EssentiaWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EssentiaWrapper.mm; sourceTree = "<group>"; };
+		B2A892E024158710009558B4 /* libfreetype.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libfreetype.a; path = ../libs/lib/libfreetype.a; sourceTree = "<group>"; };
 		B2B043962403040300795061 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		B2B043982403049000795061 /* Conversation Analysis-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Conversation Analysis-Bridging-Header.h"; sourceTree = "<group>"; };
 		B2B0439D2403057E00795061 /* libessentia.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libessentia.a; path = ../essentia/build/src/libessentia.a; sourceTree = "<group>"; };
@@ -75,7 +81,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2A892D9241582E9009558B4 /* QuartzRenderer in Frameworks */,
+				B2A892DF241582E9009558B4 /* AGGRenderer in Frameworks */,
+				B2A892DD241582E9009558B4 /* SwiftPlot in Frameworks */,
 				B2E954EA240C97FC00994F2A /* Accelerate.framework in Frameworks */,
+				B2A892DB241582E9009558B4 /* SVGRenderer in Frameworks */,
+				B2A892E12415871E009558B4 /* libfreetype.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,6 +170,7 @@
 		B2B0439C2403057E00795061 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B2A892E024158710009558B4 /* libfreetype.a */,
 				B2A3B6AB24102EAF002A6F3F /* libyaml.a */,
 				B2E954E9240C97FC00994F2A /* Accelerate.framework */,
 				B2B043A12404813800795061 /* libessentia.a */,
@@ -185,6 +197,12 @@
 			dependencies = (
 			);
 			name = "Conversation Analysis";
+			packageProductDependencies = (
+				B2A892D8241582E9009558B4 /* QuartzRenderer */,
+				B2A892DA241582E9009558B4 /* SVGRenderer */,
+				B2A892DC241582E9009558B4 /* SwiftPlot */,
+				B2A892DE241582E9009558B4 /* AGGRenderer */,
+			);
 			productName = "Conversation Analysis";
 			productReference = B26A806523F30879009DD7D8 /* Conversation Analysis.app */;
 			productType = "com.apple.product-type.application";
@@ -258,6 +276,9 @@
 				Base,
 			);
 			mainGroup = B26A805C23F30879009DD7D8;
+			packageReferences = (
+				B2A892D7241582E9009558B4 /* XCRemoteSwiftPackageReference "swiftplot" */,
+			);
 			productRefGroup = B26A806623F30879009DD7D8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -666,6 +687,40 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B2A892D7241582E9009558B4 /* XCRemoteSwiftPackageReference "swiftplot" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:KarthikRIyer/swiftplot.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B2A892D8241582E9009558B4 /* QuartzRenderer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B2A892D7241582E9009558B4 /* XCRemoteSwiftPackageReference "swiftplot" */;
+			productName = QuartzRenderer;
+		};
+		B2A892DA241582E9009558B4 /* SVGRenderer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B2A892D7241582E9009558B4 /* XCRemoteSwiftPackageReference "swiftplot" */;
+			productName = SVGRenderer;
+		};
+		B2A892DC241582E9009558B4 /* SwiftPlot */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B2A892D7241582E9009558B4 /* XCRemoteSwiftPackageReference "swiftplot" */;
+			productName = SwiftPlot;
+		};
+		B2A892DE241582E9009558B4 /* AGGRenderer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B2A892D7241582E9009558B4 /* XCRemoteSwiftPackageReference "swiftplot" */;
+			productName = AGGRenderer;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B26A805D23F30879009DD7D8 /* Project object */;
 }
