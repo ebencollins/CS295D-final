@@ -73,6 +73,9 @@
                                 <state key="normal" title="Play">
                                     <color key="titleColor" red="0.04710749015" green="0.38408153550000002" blue="0.04492321849" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="playAudio:" destination="Nrq-t5-zYU" eventType="touchUpInside" id="lbC-C0-le6"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R00-X4-5d7">
                                 <rect key="frame" x="166" y="598" width="83" height="36"/>
