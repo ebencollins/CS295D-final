@@ -1,6 +1,6 @@
 //
 //  RecordingViewController.swift
-//  Conversation Analysis
+//  Conversation Analysiseb
 //
 //  Created by devon on 2/18/20.
 //  Copyright © 2020 conversation-analysis. All rights reserved.
@@ -10,6 +10,7 @@ import UIKit
 import AVFoundation
 
 class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
+    let AUDIO_FILENAME = "recording.wav"
     
     var recorder : AVAudioRecorder!
     var playSound : AVAudioPlayer!
@@ -20,6 +21,9 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
     var isRecording = false
     var counter = 0.0
     
+    var processingViewResult:ProcessingViewResult?
+
+    
     @IBOutlet var logoImage: UIImageView!
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var playButton: UIButton!
@@ -28,23 +32,27 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
     @IBAction func record(_ sender: Any) {
         // check that we are not already recording
         if recorder == nil {
-            print("startTimer")
             timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(runTimer), userInfo: nil, repeats: true)
             
-            let filename = getURL().appendingPathComponent("\(recordNum).wave")
-            let settings = [AVFormatIDKey: Int(kAudioFormatMPEG4AAC), AVSampleRateKey: 12000, AVNumberOfChannelsKey: 1, AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue]
+            let settings = [
+                AVFormatIDKey: kAudioFormatLinearPCM,
+                AVSampleRateKey: 44100,
+                AVNumberOfChannelsKey: 1,
+                AVLinearPCMBitDepthKey: 32,
+                AVLinearPCMIsFloatKey: true,
+                AVLinearPCMIsBigEndianKey: false,
+                AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
+                ] as [String : Any]
             
             do {
-                recorder = try AVAudioRecorder(url: filename, settings: settings)
+                recorder = try AVAudioRecorder(url: getAudioFileURL(), settings: settings)
                 recorder.delegate = self
                 recorder.record()
                 button.setTitle("Stop Recording?", for: .normal)
                 playButton.isEnabled = false
                 
             } catch {
-                let alert = UIAlertController(title: "Oops!", message: "Something went wrong!", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "dismiss", style: .default, handler: nil))
-                present(alert, animated: true, completion: nil)
+                showErrorAlert()
             }
             
         } else {
@@ -56,15 +64,14 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
             
             timer.invalidate()
             counter = 0.0
-                        
+            // process
+            self.performSegue(withIdentifier: "DataProcessingSegue", sender: nil)
         }
-        
     }
     
     @IBAction func playAudio(_ sender: UIButton) {
-        let path = getURL().appendingPathComponent("\(recordNum).wave")
         do {
-            audioPlayer = try AVAudioPlayer(contentsOf: path)
+            audioPlayer = try AVAudioPlayer(contentsOf: getAudioFileURL())
             audioPlayer.play()
         } catch {
                 
@@ -96,6 +103,10 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
         return thisDirect
     }
     
+    func getAudioFileURL() -> URL {
+        return getURL().appendingPathComponent("\(recordNum).wave")
+    }
+    
     //Loading the recording view
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,15 +119,44 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
         }
         AVAudioSession.sharedInstance().requestRecordPermission { (permission) in
             if permission {
-                print("OK")
+                print("Permision Granted")
             }
         }
         
         print("RecordingViewController loaded its view")
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if let result = self.processingViewResult {
+            switch result {
+            case .OK_SAVED:
+                print("saved")
+                // TODO segue to detail view
+            case .OK_DELETED:
+                // TODO display toast
+                print("deleted")
+            case .ERROR:
+                showErrorAlert()
+            }
+            self.processingViewResult = nil;
+        }
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "DataProcessingSegue") {
+            let vc = segue.destination as! ProcessingViewController
+            vc.recordingVC = self
+        }
+    }
+    
+    func showErrorAlert(){
+        let alert = UIAlertController(title: "Oops!", message: "Something went wrong!", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "dismiss", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
 
 }
-
 
 //extentions for rounding the recording button's corners
 @IBDesignable extension UIButton {
