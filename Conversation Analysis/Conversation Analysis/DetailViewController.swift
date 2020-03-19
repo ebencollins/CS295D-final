@@ -10,7 +10,8 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
-    // run when a view is loaded for the first time    override func viewDidLoad() {
+    // run when a view is loaded for the first time
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         // print to console to alert that view has been loaded
@@ -21,5 +22,4 @@ class DetailViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         print("DetailViewController loaded")
     }
-    
 }
