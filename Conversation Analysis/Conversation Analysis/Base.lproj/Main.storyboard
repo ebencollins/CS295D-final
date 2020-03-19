@@ -96,7 +96,7 @@
                         <outlet property="logoImage" destination="XEO-7t-KGl" id="iwl-9F-k7q"/>
                         <outlet property="playButton" destination="Jbt-qM-s4N" id="NIQ-Rt-uP4"/>
                         <outlet property="timerLabel" destination="R00-X4-5d7" id="tUQ-8d-nr0"/>
-                        <segue destination="Jpf-2B-sZi" kind="show" identifier="DataProcessingSegue" id="baO-lf-ZBo"/>
+                        <segue destination="Jpf-2B-sZi" kind="presentation" identifier="DataProcessingSegue" modalPresentationStyle="fullScreen" id="baO-lf-ZBo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ih3-e3-YCI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -168,7 +168,7 @@
             <objects>
                 <viewController title="Processing" id="Jpf-2B-sZi" customClass="ProcessingViewController" customModule="Conversation_Analysis" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ElR-ex-tMo">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="Data collection successful" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6ZS-Jj-F4S">
@@ -193,18 +193,24 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kjy-H9-hnN">
-                                <rect key="frame" x="278" y="609" width="36" height="30"/>
+                                <rect key="frame" x="278" y="663" width="36" height="30"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Send">
                                     <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="onSave:" destination="Jpf-2B-sZi" eventType="touchUpInside" id="cOo-Ni-BDW"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cUa-GD-GmD">
-                                <rect key="frame" x="100" y="609" width="48" height="30"/>
+                                <rect key="frame" x="100" y="663" width="48" height="30"/>
                                 <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Cancel">
                                     <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="onCancel:" destination="Jpf-2B-sZi" eventType="touchUpInside" id="WFh-Ov-a1A"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="Send data for research? " textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aYc-Nw-dH7">
                                 <rect key="frame" x="0.0" y="528" width="414" height="54"/>

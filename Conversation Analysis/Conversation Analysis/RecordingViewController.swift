@@ -21,6 +21,9 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
     var isRecording = false
     var counter = 0.0
     
+    var processingViewResult:ProcessingViewResult?
+
+    
     @IBOutlet var logoImage: UIImageView!
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var playButton: UIButton!
@@ -49,9 +52,7 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
                 playButton.isEnabled = false
                 
             } catch {
-                let alert = UIAlertController(title: "Oops!", message: "Something went wrong!", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "dismiss", style: .default, handler: nil))
-                present(alert, animated: true, completion: nil)
+                showErrorAlert()
             }
             
         } else {
@@ -63,7 +64,7 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
             
             timer.invalidate()
             counter = 0.0
-            
+            // process
             self.performSegue(withIdentifier: "DataProcessingSegue", sender: nil)
         }
     }
@@ -118,18 +119,41 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
         }
         AVAudioSession.sharedInstance().requestRecordPermission { (permission) in
             if permission {
-                print("OK")
+                print("Permision Granted")
             }
         }
         
         print("RecordingViewController loaded its view")
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if let result = self.processingViewResult {
+            switch result {
+            case .OK_SAVED:
+                print("saved")
+                // TODO segue to detail view
+            case .OK_DELETED:
+                // TODO display toast
+                print("deleted")
+            case .ERROR:
+                showErrorAlert()
+            }
+            self.processingViewResult = nil;
+        }
+    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "DataProcessingSegue") {
             let vc = segue.destination as! ProcessingViewController
-            vc.audioURL = getAudioFileURL()
+            vc.recordingVC = self
         }
+    }
+    
+    func showErrorAlert(){
+        let alert = UIAlertController(title: "Oops!", message: "Something went wrong!", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "dismiss", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
 
 }
