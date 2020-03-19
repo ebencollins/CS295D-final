@@ -34,6 +34,7 @@ class ProcessingViewController: UIViewController {
                 // read to buffer
                 let buf = AVAudioPCMBuffer(pcmFormat: format!, frameCapacity: AVAudioFrameCount(file.length))
                 try file.read(into: buf!)
+                try self.deleteAudioFile()
                 
                 // load buffer to array and process via objectivec++ essentia wrapper
                 let samples = Array(UnsafeBufferPointer(start: buf?.floatChannelData![0], count:Int(buf!.frameLength)))
@@ -65,6 +66,8 @@ class ProcessingViewController: UIViewController {
                 
             }
             catch {
+                try? self.deleteAudioFile()
+
                 // return to recording view with result error
                 DispatchQueue.main.async {
                     self.recordingVC.processingViewResult = .ERROR
@@ -86,6 +89,10 @@ class ProcessingViewController: UIViewController {
         loadingIndicator.startAnimating();
         alert.view.addSubview(loadingIndicator)
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func deleteAudioFile() throws {
+        try FileManager.default.removeItem(at: self.recordingVC.getAudioFileURL())
     }
     
     
