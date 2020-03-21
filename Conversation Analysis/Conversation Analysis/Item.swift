@@ -9,12 +9,12 @@ import UIKit
 class Item: NSObject{
     var name: String?
     var serialNumber: String?
-    let dateCreated: Date
+    let dateCreated: String
     
     init(name:String, serialNumber: String?){
         self.name = name
         self.serialNumber = serialNumber
-        self.dateCreated = Date()
+        self.dateCreated = DateFormatter.localizedString(from: NSDate() as Date, dateStyle: .short, timeStyle: .short)
         
         super.init()
     }
@@ -35,4 +35,3 @@ class Item: NSObject{
         
     }
 }
-
