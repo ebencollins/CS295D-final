@@ -116,7 +116,6 @@ class ProcessingViewController: UIViewController {
         return imagePath.absoluteURL
     }
     
-    
     @IBAction func onSave(_ sender: Any) {
         // save extracted data to database and images to file
         do {
