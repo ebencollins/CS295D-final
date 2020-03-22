@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import CoreData
 
 class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
     let AUDIO_FILENAME = "recording.wav"
@@ -22,7 +23,7 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
     var counter = 0.0
     
     var processingViewResult:ProcessingViewResult?
-
+    var lastConversation:Conversation?
     
     @IBOutlet var logoImage: UIImageView!
     @IBOutlet weak var button: UIButton!
@@ -131,7 +132,7 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
         if let result = self.processingViewResult {
             switch result {
             case .OK_SAVED:
-                print("saved")
+                print("saved conversation \(String(describing: self.lastConversation?.uuid))")
                 // TODO segue to detail view
             case .OK_DELETED:
                 // TODO display toast

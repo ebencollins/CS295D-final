@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19A602" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Conversation" representedClassName="Conversation" syncable="YES">
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="duration" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="uploaded" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="uuid" attributeType="UUID" usesScalarValueType="NO"/>
+        <relationship name="segments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ConversationSegment" inverseName="conversation" inverseEntity="ConversationSegment"/>
+    </entity>
+    <entity name="ConversationSegment" representedClassName="ConversationSegment" syncable="YES">
+        <attribute name="duration" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="image" attributeType="URI"/>
+        <attribute name="start_time" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="uuid" attributeType="UUID" usesScalarValueType="NO"/>
+        <relationship name="conversation" maxCount="1" deletionRule="Cascade" destinationEntity="Conversation" inverseName="segments" inverseEntity="Conversation"/>
+    </entity>
+    <elements>
+        <element name="Conversation" positionX="-54" positionY="-9" width="128" height="118"/>
+        <element name="ConversationSegment" positionX="179.18359375" positionY="-35.890625" width="128" height="118"/>
+    </elements>
+</model>

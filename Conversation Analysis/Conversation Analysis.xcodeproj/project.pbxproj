@@ -25,6 +25,11 @@
 		B2A892DF241582E9009558B4 /* AGGRenderer in Frameworks */ = {isa = PBXBuildFile; productRef = B2A892DE241582E9009558B4 /* AGGRenderer */; };
 		B2A892E12415871E009558B4 /* libfreetype.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2A892E024158710009558B4 /* libfreetype.a */; };
 		B2B043972403040300795061 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B043962403040300795061 /* DetailViewController.swift */; };
+		B2BD154B2426EEE0000167EA /* ConversationAnalysis.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B2BD15492426EEDF000167EA /* ConversationAnalysis.xcdatamodeld */; };
+		B2BD158824270433000167EA /* ConversationSegment+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BD158424270433000167EA /* ConversationSegment+CoreDataClass.swift */; };
+		B2BD158924270433000167EA /* ConversationSegment+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BD158524270433000167EA /* ConversationSegment+CoreDataProperties.swift */; };
+		B2BD158A24270433000167EA /* Conversation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BD158624270433000167EA /* Conversation+CoreDataClass.swift */; };
+		B2BD158B24270433000167EA /* Conversation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BD158724270433000167EA /* Conversation+CoreDataProperties.swift */; };
 		B2BDF552242306AC00AC3183 /* Sequence+transposed.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BDF551242306AC00AC3183 /* Sequence+transposed.swift */; };
 		B2E954EA240C97FC00994F2A /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2E954E9240C97FC00994F2A /* Accelerate.framework */; };
 /* End PBXBuildFile section */
@@ -74,6 +79,11 @@
 		B2B0439E2403058B00795061 /* essentia.pc */ = {isa = PBXFileReference; lastKnownFileType = text; name = essentia.pc; path = ../essentia/build/essentia.pc; sourceTree = "<group>"; };
 		B2B0439F2403059300795061 /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; name = src; path = ../essentia/build/src; sourceTree = "<group>"; };
 		B2B043A12404813800795061 /* libessentia.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libessentia.a; path = ../libs/lib/libessentia.a; sourceTree = "<group>"; };
+		B2BD154A2426EEDF000167EA /* ConversationAnalysis.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ConversationAnalysis.xcdatamodel; sourceTree = "<group>"; };
+		B2BD158424270433000167EA /* ConversationSegment+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ConversationSegment+CoreDataClass.swift"; path = "Conversation Analysis/ConversationSegment+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B2BD158524270433000167EA /* ConversationSegment+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ConversationSegment+CoreDataProperties.swift"; path = "Conversation Analysis/ConversationSegment+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B2BD158624270433000167EA /* Conversation+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Conversation+CoreDataClass.swift"; path = "Conversation Analysis/Conversation+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B2BD158724270433000167EA /* Conversation+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Conversation+CoreDataProperties.swift"; path = "Conversation Analysis/Conversation+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B2BDF551242306AC00AC3183 /* Sequence+transposed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sequence+transposed.swift"; sourceTree = "<group>"; };
 		B2E954E9240C97FC00994F2A /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -112,6 +122,10 @@
 		B26A805C23F30879009DD7D8 = {
 			isa = PBXGroup;
 			children = (
+				B2BD158424270433000167EA /* ConversationSegment+CoreDataClass.swift */,
+				B2BD158524270433000167EA /* ConversationSegment+CoreDataProperties.swift */,
+				B2BD158624270433000167EA /* Conversation+CoreDataClass.swift */,
+				B2BD158724270433000167EA /* Conversation+CoreDataProperties.swift */,
 				B26A806723F30879009DD7D8 /* Conversation Analysis */,
 				B26A807E23F3087C009DD7D8 /* Conversation AnalysisTests */,
 				B26A808923F3087C009DD7D8 /* Conversation AnalysisUITests */,
@@ -133,6 +147,7 @@
 		B26A806723F30879009DD7D8 /* Conversation Analysis */ = {
 			isa = PBXGroup;
 			children = (
+				B2BD15482426EE03000167EA /* Resources */,
 				B2BDF5502423068500AC3183 /* Extensions */,
 				B26A806823F30879009DD7D8 /* AppDelegate.swift */,
 				B26A806A23F30879009DD7D8 /* SceneDelegate.swift */,
@@ -182,6 +197,14 @@
 				B2B0439D2403057E00795061 /* libessentia.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B2BD15482426EE03000167EA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B2BD15492426EEDF000167EA /* ConversationAnalysis.xcdatamodeld */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		B2BDF5502423068500AC3183 /* Extensions */ = {
@@ -333,13 +356,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2BD158924270433000167EA /* ConversationSegment+CoreDataProperties.swift in Sources */,
 				007149D223FCC77D0025E580 /* RecordingViewController.swift in Sources */,
+				B2BD158A24270433000167EA /* Conversation+CoreDataClass.swift in Sources */,
 				B26A806923F30879009DD7D8 /* AppDelegate.swift in Sources */,
 				00D884232400540B00DB1FDE /* ProcessingViewController.swift in Sources */,
 				B2A3B6AF2410AC03002A6F3F /* EssentiaWrapper.mm in Sources */,
 				B2B043972403040300795061 /* DetailViewController.swift in Sources */,
 				007149D423FCC9780025E580 /* ListViewController.swift in Sources */,
+				B2BD158B24270433000167EA /* Conversation+CoreDataProperties.swift in Sources */,
+				B2BD154B2426EEE0000167EA /* ConversationAnalysis.xcdatamodeld in Sources */,
 				B26A806B23F30879009DD7D8 /* SceneDelegate.swift in Sources */,
+				B2BD158824270433000167EA /* ConversationSegment+CoreDataClass.swift in Sources */,
 				B2BDF552242306AC00AC3183 /* Sequence+transposed.swift in Sources */,
 				00CE0B752408123400AC093B /* DetailViewController.swift in Sources */,
 			);
@@ -733,6 +761,19 @@
 			productName = AGGRenderer;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		B2BD15492426EEDF000167EA /* ConversationAnalysis.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B2BD154A2426EEDF000167EA /* ConversationAnalysis.xcdatamodel */,
+			);
+			currentVersion = B2BD154A2426EEDF000167EA /* ConversationAnalysis.xcdatamodel */;
+			path = ConversationAnalysis.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B26A805D23F30879009DD7D8 /* Project object */;
 }

@@ -10,8 +10,13 @@ import UIKit
 import AVFoundation
 import SwiftPlot
 import AGGRenderer
+import CoreData
 
 class ProcessingViewController: UIViewController {
+    
+    var date:Date?
+    var duration:Int?
+    var segments:[(duration: Int, start:Int, imageData:Data)] = []
     
     @IBOutlet weak var imageView: UIImageView!
     
@@ -55,11 +60,17 @@ class ProcessingViewController: UIViewController {
                 hm.markerThickness = 0
                 hm.drawGraph(size: Size(width: Float(CGFloat(1200)), height: Float(768)), renderer: renderer)
                 
+                let imageData = Data(base64Encoded: renderer.base64Png())
+                
+                self.date = Date()
+                self.duration = samples.count / file.fileFormat.sampleRate.toInt()
+                self.segments.append((duration: 0, start: 0, imageData: imageData!))
+                
                 DispatchQueue.main.async {
                     // dismiss loading view
                     self.dismiss(animated: true, completion: nil)
                     // show plot
-                    let image = UIImage(data: NSData(base64Encoded: renderer.base64Png())! as Data)
+                    let image = UIImage(data: imageData!)
                     self.imageView.image = image
                     self.imageView.contentMode = .scaleAspectFit
                 }
@@ -67,7 +78,7 @@ class ProcessingViewController: UIViewController {
             }
             catch {
                 try? self.deleteAudioFile()
-
+                
                 // return to recording view with result error
                 DispatchQueue.main.async {
                     self.recordingVC.processingViewResult = .ERROR
@@ -95,10 +106,43 @@ class ProcessingViewController: UIViewController {
         try FileManager.default.removeItem(at: self.recordingVC.getAudioFileURL())
     }
     
+    func saveImage(uuid: UUID, data: Data) throws -> URL {
+        let imagesDir = self.recordingVC.getURL().appendingPathComponent("images")
+        // try? because dir may already exist
+        try? FileManager.default.createDirectory(at: imagesDir, withIntermediateDirectories: false, attributes: nil)
+        // raise if there's an error creating the file though
+        let imagePath = imagesDir.appendingPathComponent("\(uuid).png")
+        try data.write(to: imagePath)
+        return imagePath.absoluteURL
+    }
+    
     
     @IBAction func onSave(_ sender: Any) {
-        // TODO: save, etc
-        self.recordingVC.processingViewResult = .OK_SAVED
+        // save extracted data to database and images to file
+        do {
+            let appDelegate = UIApplication.shared.delegate as? AppDelegate
+            let managedContext = appDelegate!.persistentContainer.viewContext
+            // create conversation and segments based on data form processing
+            let conversation = Conversation(context: managedContext)
+            conversation.date = self.date
+            conversation.uuid = UUID()
+            
+            for (duration, segmentStart, imageData) in self.segments {
+                let segment = ConversationSegment(context: managedContext)
+                segment.uuid = UUID()
+                segment.image = try saveImage(uuid: segment.uuid!, data: imageData)
+                segment.duration = Int32(duration)
+                segment.start_time = Int32(segmentStart)
+                segment.conversation = conversation
+            }
+            try managedContext.save()
+            self.recordingVC.lastConversation = conversation
+            self.recordingVC.processingViewResult = .OK_SAVED
+        }
+        catch {
+            self.recordingVC.lastConversation = nil
+            self.recordingVC.processingViewResult = .ERROR
+        }
         self.dismiss(animated: true, completion: nil)
     }
     

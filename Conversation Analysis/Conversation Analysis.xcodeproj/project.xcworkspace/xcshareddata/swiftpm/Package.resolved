@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "SwiftPlot",
+        "repositoryURL": "git@github.com:KarthikRIyer/swiftplot.git",
+        "state": {
+          "branch": "master",
+          "revision": "ba39eff937800087ec6d74b7378abf26374b2856",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
