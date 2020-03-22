@@ -97,6 +97,7 @@
                         <outlet property="playButton" destination="Jbt-qM-s4N" id="NIQ-Rt-uP4"/>
                         <outlet property="timerLabel" destination="R00-X4-5d7" id="tUQ-8d-nr0"/>
                         <segue destination="Jpf-2B-sZi" kind="presentation" identifier="DataProcessingSegue" modalPresentationStyle="fullScreen" id="baO-lf-ZBo"/>
+                        <segue destination="DWJ-Q6-5Sv" kind="show" identifier="RecordingProcessedDetailViewSegue" id="ODM-xW-1KZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ih3-e3-YCI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -127,11 +128,11 @@
             <objects>
                 <viewController title="Detail View" id="DWJ-Q6-5Sv" customClass="DetailViewController" customModule="Conversation_Analysis" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wr6-sL-yQh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Time Interval" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JCt-da-39M">
-                                <rect key="frame" x="151" y="588" width="112" height="34"/>
+                                <rect key="frame" x="151" y="534" width="112" height="34"/>
                                 <accessibility key="accessibilityConfiguration" label="Time Interval"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -140,7 +141,7 @@
                                 <rect key="frame" x="0.0" y="94" width="414" height="439"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ID" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZM5-iP-cki">
-                                <rect key="frame" x="159" y="627" width="97" height="34"/>
+                                <rect key="frame" x="159" y="573" width="97" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -158,6 +159,7 @@
                         <viewLayoutGuide key="safeArea" id="l0o-d7-Hm8"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="86d-Gv-omM"/>
+                    <navigationItem key="navigationItem" id="g1r-hB-yQV"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NIl-4S-n3U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

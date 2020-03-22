@@ -132,8 +132,7 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
         if let result = self.processingViewResult {
             switch result {
             case .OK_SAVED:
-                print("saved conversation \(String(describing: self.lastConversation?.uuid))")
-                // TODO segue to detail view
+                self.performSegue(withIdentifier: "RecordingProcessedDetailViewSegue", sender: nil)
             case .OK_DELETED:
                 // TODO display toast
                 print("deleted")
@@ -148,6 +147,13 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
         if (segue.identifier == "DataProcessingSegue") {
             let vc = segue.destination as! ProcessingViewController
             vc.recordingVC = self
+        } else if (segue.identifier == "RecordingProcessedDetailViewSegue") {
+            let vc = segue.destination as! DetailViewController
+            if let conversation = self.lastConversation {
+                vc.conversation = conversation
+            } else {
+                showErrorAlert()
+            }
         }
     }
     
