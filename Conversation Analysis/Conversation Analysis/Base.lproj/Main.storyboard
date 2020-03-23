@@ -176,6 +176,11 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="86d-Gv-omM"/>
                     <navigationItem key="navigationItem" id="g1r-hB-yQV"/>
+                    <connections>
+                        <outlet property="id" destination="ruT-5W-SYu" id="8J0-Po-2Cl"/>
+                        <outlet property="imageView" destination="5Ve-TZ-KzE" id="KiJ-pB-mc9"/>
+                        <outlet property="timeInterval" destination="nn6-gl-0tT" id="IrY-MZ-XCV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NIl-4S-n3U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

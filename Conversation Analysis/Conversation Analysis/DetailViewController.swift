@@ -10,7 +10,11 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
-    var conversation:Conversation!
+    var conversation: Conversation!
+
+    @IBOutlet var imageView: UIImageView!
+    @IBOutlet var timeInterval: UILabel!
+    @IBOutlet var id: UILabel!
     
     // run when a view is loaded for the first time
     override func viewDidLoad() {
@@ -18,6 +22,17 @@ class DetailViewController: UIViewController {
         
         // print to console to alert that view has been loaded
         print("DetailViewController loaded its view with conversation \(conversation.uuid)")
+        
+        // set imageView to image
+        // imageView.image = conversation.image
+        
+        //set interval (using duration for now)
+        timeInterval.text = "\(conversation.duration) "
+        
+        // set id to uuid
+        if let uuid = conversation.uuid {
+            id.text = "\(uuid)"
+        }
     }
     
     // run everytime a view is loaded

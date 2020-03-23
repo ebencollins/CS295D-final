@@ -127,6 +127,7 @@ class ProcessingViewController: UIViewController {
     
     func setHidden(_ hidden:Bool) {
         if(hidden) {
+            // hides objects
             dataCollectionSucessesful.isHidden = true
             audioRecordingDeleted.isHidden = true
             imageView.isHidden = true
@@ -135,6 +136,7 @@ class ProcessingViewController: UIViewController {
             sendButton.isHidden = true
             cancelButton.isHidden = true
         } else {
+            // unhides objects
             dataCollectionSucessesful.isHidden = false
             audioRecordingDeleted.isHidden = false
             imageView.isHidden = false
