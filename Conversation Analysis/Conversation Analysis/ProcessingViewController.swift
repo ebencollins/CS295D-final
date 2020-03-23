@@ -19,6 +19,12 @@ class ProcessingViewController: UIViewController {
     var segments:[(duration: Int, start:Int, imageData:Data)] = []
     
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet var dataCollectionSucessesful: UILabel!
+    @IBOutlet var audioRecordingDeleted: UILabel!
+    @IBOutlet var timeInterval: UILabel!
+    @IBOutlet var sendDataForResearch: UILabel!
+    @IBOutlet var sendButton: UIButton!
+    @IBOutlet var cancelButton: UIButton!
     
     var recordingVC:RecordingViewController!
     
@@ -73,6 +79,9 @@ class ProcessingViewController: UIViewController {
                     let image = UIImage(data: imageData!)
                     self.imageView.image = image
                     self.imageView.contentMode = .scaleAspectFit
+
+                    // unhide everything
+                    self.setHidden(false)
                 }
                 
             }
@@ -114,6 +123,26 @@ class ProcessingViewController: UIViewController {
         let imagePath = imagesDir.appendingPathComponent("\(uuid).png")
         try data.write(to: imagePath)
         return imagePath.absoluteURL
+    }
+    
+    func setHidden(_ hidden:Bool) {
+        if(hidden) {
+            dataCollectionSucessesful.isHidden = true
+            audioRecordingDeleted.isHidden = true
+            imageView.isHidden = true
+            timeInterval.isHidden = true
+            sendDataForResearch.isHidden = true
+            sendButton.isHidden = true
+            cancelButton.isHidden = true
+        } else {
+            dataCollectionSucessesful.isHidden = false
+            audioRecordingDeleted.isHidden = false
+            imageView.isHidden = false
+            timeInterval.isHidden = false
+            sendDataForResearch.isHidden = false
+            sendButton.isHidden = false
+            cancelButton.isHidden = false
+        }
     }
     
     @IBAction func onSave(_ sender: Any) {
