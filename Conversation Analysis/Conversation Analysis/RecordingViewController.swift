@@ -64,7 +64,11 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
             recorder = nil
             
             timer.invalidate()
+            
+            // reset timer back to 00:00
             counter = 0.0
+            timerLabel.text = "00:00"
+            
             // process
             self.performSegue(withIdentifier: "DataProcessingSegue", sender: nil)
         }
