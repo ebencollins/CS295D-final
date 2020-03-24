@@ -152,8 +152,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ruT-5W-SYu">
-                                <rect key="frame" x="0.0" y="441" width="375" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UUID" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ruT-5W-SYu">
+                                <rect key="frame" x="0.0" y="626" width="375" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -162,15 +162,15 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="5Ve-TZ-KzE" firstAttribute="trailing" secondItem="l0o-d7-Hm8" secondAttribute="trailing" id="0ln-w5-tfJ"/>
+                            <constraint firstItem="ruT-5W-SYu" firstAttribute="trailing" secondItem="l0o-d7-Hm8" secondAttribute="trailing" id="2dy-4c-tJu"/>
                             <constraint firstItem="5Ve-TZ-KzE" firstAttribute="leading" secondItem="l0o-d7-Hm8" secondAttribute="leading" id="3xW-Bl-V6d"/>
+                            <constraint firstItem="ruT-5W-SYu" firstAttribute="leading" secondItem="l0o-d7-Hm8" secondAttribute="leading" id="5XZ-8w-EKf"/>
+                            <constraint firstItem="ruT-5W-SYu" firstAttribute="bottom" secondItem="l0o-d7-Hm8" secondAttribute="bottom" id="76B-vC-4Al"/>
                             <constraint firstItem="nn6-gl-0tT" firstAttribute="trailing" secondItem="l0o-d7-Hm8" secondAttribute="trailing" id="AIl-SY-d0M"/>
-                            <constraint firstItem="ruT-5W-SYu" firstAttribute="leading" secondItem="l0o-d7-Hm8" secondAttribute="leading" id="EpN-ob-dT3"/>
                             <constraint firstItem="l0o-d7-Hm8" firstAttribute="bottom" secondItem="5Ve-TZ-KzE" secondAttribute="bottom" constant="243" id="GjW-MG-KVD"/>
                             <constraint firstItem="5Ve-TZ-KzE" firstAttribute="top" secondItem="l0o-d7-Hm8" secondAttribute="top" constant="94" id="HyD-nR-GM4"/>
                             <constraint firstItem="nn6-gl-0tT" firstAttribute="leading" secondItem="l0o-d7-Hm8" secondAttribute="leading" id="LwQ-WH-cT2"/>
                             <constraint firstItem="nn6-gl-0tT" firstAttribute="top" secondItem="5Ve-TZ-KzE" secondAttribute="bottom" constant="8" id="cpY-Z9-6pX"/>
-                            <constraint firstItem="ruT-5W-SYu" firstAttribute="trailing" secondItem="l0o-d7-Hm8" secondAttribute="trailing" id="dfB-vf-u3b"/>
-                            <constraint firstItem="ruT-5W-SYu" firstAttribute="top" secondItem="nn6-gl-0tT" secondAttribute="bottom" constant="8" id="hVm-RC-Mwl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="l0o-d7-Hm8"/>
                     </view>
