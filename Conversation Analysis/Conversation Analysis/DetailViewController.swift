@@ -24,7 +24,6 @@ class DetailViewController: UIViewController {
         print("DetailViewController loaded its view with conversation \(conversation.uuid)")
         
         // set imageView to image
-        // imageView.image = conversation.image
         
         //set interval (using duration for now)
         timeInterval.text = "\(conversation.duration) "
