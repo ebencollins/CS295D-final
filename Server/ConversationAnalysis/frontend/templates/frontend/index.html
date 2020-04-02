@@ -3,7 +3,9 @@
     {% for conversation in conversations %}
         <div class="row mb-4">
             <div class="col-sm-12 col-md-8 offset-md-2 text-center">
-                <img class="d-block w-100" src="{{ conversation.gammatone.url }}" alt="gammatone">
+                {% for segment in conversation.conversationsegment_set.all %}
+                    <img class="d-block w-100" src="{{ segment.image.url }}" alt="gammatone">
+                {% endfor %}
                 <table class="table">
                     <tbody>
                     <tr>
