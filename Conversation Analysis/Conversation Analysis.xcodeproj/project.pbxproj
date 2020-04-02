@@ -19,6 +19,9 @@
 		B26A808023F3087C009DD7D8 /* Conversation_AnalysisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26A807F23F3087C009DD7D8 /* Conversation_AnalysisTests.swift */; };
 		B26A808B23F3087C009DD7D8 /* Conversation_AnalysisUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26A808A23F3087C009DD7D8 /* Conversation_AnalysisUITests.swift */; };
 		B2A3B6AF2410AC03002A6F3F /* EssentiaWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = B2A3B6AE2410AC03002A6F3F /* EssentiaWrapper.mm */; };
+		B2A4AF5C2432E7B90023112A /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A4AF5B2432E7B90023112A /* APIClient.swift */; };
+		B2A4AF5F2432E97F0023112A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B2A4AF5E2432E97F0023112A /* Alamofire */; };
+		B2A4AF612435B9E20023112A /* Date+isoformat.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A4AF602435B9E20023112A /* Date+isoformat.swift */; };
 		B2A892D9241582E9009558B4 /* QuartzRenderer in Frameworks */ = {isa = PBXBuildFile; productRef = B2A892D8241582E9009558B4 /* QuartzRenderer */; };
 		B2A892DB241582E9009558B4 /* SVGRenderer in Frameworks */ = {isa = PBXBuildFile; productRef = B2A892DA241582E9009558B4 /* SVGRenderer */; };
 		B2A892DD241582E9009558B4 /* SwiftPlot in Frameworks */ = {isa = PBXBuildFile; productRef = B2A892DC241582E9009558B4 /* SwiftPlot */; };
@@ -72,6 +75,8 @@
 		B2A3B6AB24102EAF002A6F3F /* libyaml.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libyaml.a; path = ../libs/lib/libyaml.a; sourceTree = "<group>"; };
 		B2A3B6AD2410AC03002A6F3F /* EssentiaWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EssentiaWrapper.h; sourceTree = "<group>"; };
 		B2A3B6AE2410AC03002A6F3F /* EssentiaWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EssentiaWrapper.mm; sourceTree = "<group>"; };
+		B2A4AF5B2432E7B90023112A /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		B2A4AF602435B9E20023112A /* Date+isoformat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+isoformat.swift"; sourceTree = "<group>"; };
 		B2A892E024158710009558B4 /* libfreetype.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libfreetype.a; path = ../libs/lib/libfreetype.a; sourceTree = "<group>"; };
 		B2B043962403040300795061 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		B2B043982403049000795061 /* Conversation Analysis-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Conversation Analysis-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -80,10 +85,10 @@
 		B2B0439F2403059300795061 /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; name = src; path = ../essentia/build/src; sourceTree = "<group>"; };
 		B2B043A12404813800795061 /* libessentia.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libessentia.a; path = ../libs/lib/libessentia.a; sourceTree = "<group>"; };
 		B2BD154A2426EEDF000167EA /* ConversationAnalysis.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ConversationAnalysis.xcdatamodel; sourceTree = "<group>"; };
-		B2BD158424270433000167EA /* ConversationSegment+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ConversationSegment+CoreDataClass.swift"; path = "Conversation Analysis/ConversationSegment+CoreDataClass.swift"; sourceTree = "<group>"; };
-		B2BD158524270433000167EA /* ConversationSegment+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ConversationSegment+CoreDataProperties.swift"; path = "Conversation Analysis/ConversationSegment+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		B2BD158624270433000167EA /* Conversation+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Conversation+CoreDataClass.swift"; path = "Conversation Analysis/Conversation+CoreDataClass.swift"; sourceTree = "<group>"; };
-		B2BD158724270433000167EA /* Conversation+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Conversation+CoreDataProperties.swift"; path = "Conversation Analysis/Conversation+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B2BD158424270433000167EA /* ConversationSegment+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConversationSegment+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B2BD158524270433000167EA /* ConversationSegment+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConversationSegment+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B2BD158624270433000167EA /* Conversation+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Conversation+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B2BD158724270433000167EA /* Conversation+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Conversation+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B2BDF551242306AC00AC3183 /* Sequence+transposed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sequence+transposed.swift"; sourceTree = "<group>"; };
 		B2E954E9240C97FC00994F2A /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -94,6 +99,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2A892D9241582E9009558B4 /* QuartzRenderer in Frameworks */,
+				B2A4AF5F2432E97F0023112A /* Alamofire in Frameworks */,
 				B2A892DF241582E9009558B4 /* AGGRenderer in Frameworks */,
 				B2A892DD241582E9009558B4 /* SwiftPlot in Frameworks */,
 				B2E954EA240C97FC00994F2A /* Accelerate.framework in Frameworks */,
@@ -122,10 +128,6 @@
 		B26A805C23F30879009DD7D8 = {
 			isa = PBXGroup;
 			children = (
-				B2BD158424270433000167EA /* ConversationSegment+CoreDataClass.swift */,
-				B2BD158524270433000167EA /* ConversationSegment+CoreDataProperties.swift */,
-				B2BD158624270433000167EA /* Conversation+CoreDataClass.swift */,
-				B2BD158724270433000167EA /* Conversation+CoreDataProperties.swift */,
 				B26A806723F30879009DD7D8 /* Conversation Analysis */,
 				B26A807E23F3087C009DD7D8 /* Conversation AnalysisTests */,
 				B26A808923F3087C009DD7D8 /* Conversation AnalysisUITests */,
@@ -147,6 +149,7 @@
 		B26A806723F30879009DD7D8 /* Conversation Analysis */ = {
 			isa = PBXGroup;
 			children = (
+				B2A4AF5A2432E3760023112A /* Data */,
 				B2BD15482426EE03000167EA /* Resources */,
 				B2BDF5502423068500AC3183 /* Extensions */,
 				B26A806823F30879009DD7D8 /* AppDelegate.swift */,
@@ -163,6 +166,7 @@
 				B2B043982403049000795061 /* Conversation Analysis-Bridging-Header.h */,
 				B2A3B6AD2410AC03002A6F3F /* EssentiaWrapper.h */,
 				B2A3B6AE2410AC03002A6F3F /* EssentiaWrapper.mm */,
+				B2A4AF5B2432E7B90023112A /* APIClient.swift */,
 			);
 			path = "Conversation Analysis";
 			sourceTree = "<group>";
@@ -183,6 +187,17 @@
 				B26A808C23F3087C009DD7D8 /* Info.plist */,
 			);
 			path = "Conversation AnalysisUITests";
+			sourceTree = "<group>";
+		};
+		B2A4AF5A2432E3760023112A /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				B2BD158424270433000167EA /* ConversationSegment+CoreDataClass.swift */,
+				B2BD158524270433000167EA /* ConversationSegment+CoreDataProperties.swift */,
+				B2BD158624270433000167EA /* Conversation+CoreDataClass.swift */,
+				B2BD158724270433000167EA /* Conversation+CoreDataProperties.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		B2B0439C2403057E00795061 /* Frameworks */ = {
@@ -211,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				B2BDF551242306AC00AC3183 /* Sequence+transposed.swift */,
+				B2A4AF602435B9E20023112A /* Date+isoformat.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -236,6 +252,7 @@
 				B2A892DA241582E9009558B4 /* SVGRenderer */,
 				B2A892DC241582E9009558B4 /* SwiftPlot */,
 				B2A892DE241582E9009558B4 /* AGGRenderer */,
+				B2A4AF5E2432E97F0023112A /* Alamofire */,
 			);
 			productName = "Conversation Analysis";
 			productReference = B26A806523F30879009DD7D8 /* Conversation Analysis.app */;
@@ -312,6 +329,7 @@
 			mainGroup = B26A805C23F30879009DD7D8;
 			packageReferences = (
 				B2A892D7241582E9009558B4 /* XCRemoteSwiftPackageReference "swiftplot" */,
+				B2A4AF5D2432E97F0023112A /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = B26A806623F30879009DD7D8 /* Products */;
 			projectDirPath = "";
@@ -364,9 +382,11 @@
 				B2A3B6AF2410AC03002A6F3F /* EssentiaWrapper.mm in Sources */,
 				B2B043972403040300795061 /* DetailViewController.swift in Sources */,
 				007149D423FCC9780025E580 /* ListViewController.swift in Sources */,
+				B2A4AF5C2432E7B90023112A /* APIClient.swift in Sources */,
 				B2BD158B24270433000167EA /* Conversation+CoreDataProperties.swift in Sources */,
 				B2BD154B2426EEE0000167EA /* ConversationAnalysis.xcdatamodeld in Sources */,
 				B26A806B23F30879009DD7D8 /* SceneDelegate.swift in Sources */,
+				B2A4AF612435B9E20023112A /* Date+isoformat.swift in Sources */,
 				B2BD158824270433000167EA /* ConversationSegment+CoreDataClass.swift in Sources */,
 				B2BDF552242306AC00AC3183 /* Sequence+transposed.swift in Sources */,
 				00CE0B752408123400AC093B /* DetailViewController.swift in Sources */,
@@ -729,6 +749,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		B2A4AF5D2432E97F0023112A /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.5;
+			};
+		};
 		B2A892D7241582E9009558B4 /* XCRemoteSwiftPackageReference "swiftplot" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:KarthikRIyer/swiftplot.git";
@@ -740,6 +768,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		B2A4AF5E2432E97F0023112A /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B2A4AF5D2432E97F0023112A /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
 		B2A892D8241582E9009558B4 /* QuartzRenderer */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B2A892D7241582E9009558B4 /* XCRemoteSwiftPackageReference "swiftplot" */;

@@ -32,6 +32,8 @@ class DetailViewController: UIViewController {
         if let uuid = conversation.uuid {
             id.text = "\(uuid)"
         }
+        
+        ConversationsAPIClient.upload(conversation: conversation)
     }
     
     // run everytime a view is loaded

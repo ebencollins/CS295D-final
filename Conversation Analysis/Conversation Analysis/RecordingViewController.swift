@@ -128,7 +128,9 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
             }
         }
         
-        print("RecordingViewController loaded its view")
+        // register device with API of not already registered
+        print("register")
+        ConversationsAPIClient.registerDevice()
     }
     
     override func viewDidAppear(_ animated: Bool) {
