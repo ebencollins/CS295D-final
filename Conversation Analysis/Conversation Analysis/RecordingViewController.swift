@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import CoreData
+import NotificationBannerSwift
 
 class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
     let AUDIO_FILENAME = "recording.wav"
@@ -134,8 +135,10 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
         }
         
         // register device with API of not already registered
-        print("register")
-        ConversationsAPIClient.registerDevice()
+        ConversationsAPIClient.registerDevice(completion: {result in
+            let banner = NotificationBanner(title: "Device registered", subtitle: "This device has been successfully registered with the remote server", style: .success)
+            banner.show()
+        })
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -145,8 +148,8 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
             case .OK_SAVED:
                 self.performSegue(withIdentifier: "RecordingProcessedDetailViewSegue", sender: nil)
             case .OK_DELETED:
-                // TODO display toast
-                print("deleted")
+                let banner = NotificationBanner(title: "Discarded", subtitle: "Recording has been discarded successfully.", style: .success)
+                banner.show()
             case .ERROR:
                 showErrorAlert()
             }

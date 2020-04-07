@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NotificationBannerSwift
 
 class DetailViewController: UIViewController {
     
@@ -33,7 +34,17 @@ class DetailViewController: UIViewController {
             id.text = "\(uuid)"
         }
         
-        ConversationsAPIClient.upload(conversation: conversation)
+        if !conversation.uploaded {
+            ConversationsAPIClient.upload(conversation: conversation, completion: {result,message  in
+                var banner: NotificationBanner
+                if result{
+                    banner = NotificationBanner(title: "Upload complete", subtitle: message, style: .success)
+                }else{
+                    banner = NotificationBanner(title: "Upload failed", subtitle: message, style: .danger)
+                }
+                banner.show()
+            })
+        }
     }
     
     // run everytime a view is loaded
