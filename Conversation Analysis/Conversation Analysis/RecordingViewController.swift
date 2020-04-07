@@ -12,6 +12,7 @@ import CoreData
 
 class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
     let AUDIO_FILENAME = "recording.wav"
+    let MIN_RECORDING_LENGTH = 20.0 // seconds
     
     var recorder : AVAudioRecorder!
     var playSound : AVAudioPlayer!
@@ -62,15 +63,18 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
             button.setTitle("", for: .normal)
             playButton.isEnabled = true
             recorder = nil
-            
             timer.invalidate()
+            
+            // process
+            if counter >= MIN_RECORDING_LENGTH {
+                self.performSegue(withIdentifier: "DataProcessingSegue", sender: nil)
+            }else{
+                try? FileManager.default.removeItem(at: getAudioFileURL());
+            }
             
             // reset timer back to 00:00
             counter = 0.0
             timerLabel.text = "00:00"
-            
-            // process
-            self.performSegue(withIdentifier: "DataProcessingSegue", sender: nil)
         }
     }
     
@@ -115,6 +119,7 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
     //Loading the recording view
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("Audio file will be: \(getAudioFileURL().absoluteString)")
         
         logoImage.image = UIImage(named: "logo")
         
