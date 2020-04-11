@@ -20,7 +20,7 @@ class ConversationsAPIClient {
     }
     
     // this function will register the device if it has not yet been registered
-    static func registerDevice(completion: @escaping (_ result: Bool) -> ()){
+    static func registerDevice(){
         // don't re-register
         if let uuid = ConversationsAPIClient.getDeviceUUID() {
             return;
@@ -35,16 +35,14 @@ class ConversationsAPIClient {
                     // save if successful
                     let defaults = UserDefaults.standard
                     defaults.set(uuid, forKey: DEVICE_UUID_KEY)
-                    completion(true)
                     print("Device registered successfully: \(getDeviceUUID())")
                 case .failure(let error):
-                    completion(false)
                     print("Error registering device: \(error)")
                 }
         }
     }
     
-    static func upload(conversation: Conversation, completion: @escaping (_ result: Bool, _ message:String) -> ()){
+    static func upload(conversation: Conversation){
         // cont try to reupload
         if conversation.uploaded {
             return;
@@ -63,27 +61,24 @@ class ConversationsAPIClient {
                 case .success:
                     uploadSegments(conversation: conversation, completion: {result in
                         if result {
-                            completion(true, "All extracted segments have been successfully uploaded")
+                            print("Successfully uploaded all segments")
                             conversation.uploaded = true
                             let managedContext = (UIApplication.shared.delegate as? AppDelegate)!.persistentContainer.viewContext
                             try? managedContext.save()
                         } else {
-                            completion(false, "One or more segments failed to upload")
+                            print("Upload failed on one or more segments")
                         }
                     });
                 case .failure(let error):
-                    completion(false, "An error occured while uploading this conversation")
                     print("Error uploading conversation: \(error)")
                 }
         }
     }
     
-    static func uploadSegments(conversation: Conversation, completion: @escaping (_ result: Bool)->()) {
-        
-        var result = true
-        let group = DispatchGroup()
+    static func uploadSegments(conversation: Conversation, completion:(_ result: Bool)->()) {
+
+        var result = false;
         for segment in conversation.segments as! Set<ConversationSegment> {
-            group.enter()
             let parameters:[String:String] = [
                 "uuid": segment.uuid!.uuidString,
                 "conversation": conversation.uuid!.uuidString,
@@ -102,16 +97,13 @@ class ConversationsAPIClient {
                 .responseJSON { response in
                     switch(response.result) {
                     case .success:
-                        break
+                        result = true
                     case .failure(let error):
                         result = false
                         print("Error uploading conversation segment: \(error)")
                     }
-                    group.leave()
             }
-            group.notify(queue: .main) {
-                completion(result)
-            }
+            completion(result)
         }
     }
     

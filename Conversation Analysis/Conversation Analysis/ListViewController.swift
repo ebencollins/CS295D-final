@@ -10,6 +10,12 @@ import UIKit
 
 class ListViewController: UIViewController {
     
+    var conversations = [Conversation]()
+  
+    
+    
+    
+    
     // run when a view is loaded for the first time
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,4 +30,7 @@ class ListViewController: UIViewController {
         print("ListViewController loaded")
     }
     
+    
 }
+
+
