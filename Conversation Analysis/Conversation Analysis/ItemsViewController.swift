@@ -78,159 +78,275 @@ class ItemsViewController: UIViewController, NSFetchedResultsControllerDelegate{
     @IBOutlet var tableView:UITableView!
 
 
-    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.beginUpdates()
-    }
-    public enum NSFetchedResultsChangeType : UInt {
     
-        case insert
-        
-        case delete
-        
-        case move
-        
-        case update
-    }
-    
-
-
-     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-
-        
-         switch (type) {
-                case .insert:
-                  if let indexPath = newIndexPath {
-                    tableView.insertRows(at: [indexPath], with: .fade)
-                  }
-                  break;
-                case .delete:
-                  if let indexPath = indexPath {
-                    tableView.deleteRows(at: [indexPath], with: .fade)
-                  }
-                  break;
-                case .update:
-                  if let indexPath = indexPath, let cell = tableView.cellForRow(at: indexPath) {
-                    configureCell(cell, at: indexPath)
-                  }
-                  break;
-                  
-                case .move:
-                  if let indexPath = indexPath {
-                    tableView.deleteRows(at: [indexPath], with: .fade)
-                  }
-                  
-                  if let newIndexPath = newIndexPath {
-                    tableView.insertRows(at: [newIndexPath], with: .fade)
-                  }
-                  break;
-//         @unknown default:
-//            fatalError("Fatal Error")
+    var conversations: [NSManagedObjectModel]=[]
+//
+//    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+//        tableView.beginUpdates()
+//    }
+//    public enum NSFetchedResultsChangeType : UInt {
+//
+//        case insert
+//
+//        case delete
+//
+//        case move
+//
+//        case update
+//    }
+//
+//
+//
+//     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+//
+//
+//         switch (type) {
+//                case .insert:
+//                  if let indexPath = newIndexPath {
+//                    tableView.insertRows(at: [indexPath], with: .fade)
+//                  }
+//                  break;
+//                case .delete:
+//                  if let indexPath = indexPath {
+//                    tableView.deleteRows(at: [indexPath], with: .fade)
+//                  }
+//                  break;
+//                case .update:
+//                  if let indexPath = indexPath, let cell = tableView.cellForRow(at: indexPath) {
+//                    configureCell(cell, at: indexPath)
+//                  }
+//                  break;
+//
+//                case .move:
+//                  if let indexPath = indexPath {
+//                    tableView.deleteRows(at: [indexPath], with: .fade)
+//                  }
+//
+//                  if let newIndexPath = newIndexPath {
+//                    tableView.insertRows(at: [newIndexPath], with: .fade)
+//                  }
+//                  break;
+////         @unknown default:
+////            fatalError("Fatal Error")
+////        }
+//        }}
+//      func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+//        /*finally balance beginUpdates with endupdates*/
+//        tableView.endUpdates()
+//      }
+//
+//    override func viewDidLoad(){
+//        super.viewDidLoad()
+//        tableView.rowHeight = UITableView.automaticDimension
+//            //tableView.estimatedRowHeight = 160
+//        tableView.delegate = self
+//        tableView.dataSource = self
+//        self.tableView.rowHeight = 160.0
+//        print("ListViewController loaded its view")
+//
 //        }
-        }}
-      func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        /*finally balance beginUpdates with endupdates*/
-        tableView.endUpdates()
-      }
-    
-    override func viewDidLoad(){
-        super.viewDidLoad()
-        tableView.rowHeight = UITableView.automaticDimension
+//    }
+////    var conversations = [ConversationSegment](){
+////        didSet{
+////            updateView()
+////
+////        }
+////    }
+////
+////    private func updateView(){
+////        var hasConversations = false
+////
+////        if let hasConversations = fetchedResultsController.fetchedObjects{
+////            hasConversations = conversations.count > 0
+////        }
+////
+////        tableView.isHidden = !hasConversations
+////        messageLabel.isHidden = hasConversations
+////    }
+////    private func setupView(){
+////        setUpMessageLabel()
+////        updateView()
+////
+////    }
+////
+////    private func setUpMessageLabel(){
+////        messageLabel.text = "You dont have any conversation segments analyzed yet"
+////    }
+////
+////
+//
+////    }
+////
+//
+//extension ItemsViewController: UITableViewDelegate,UITableViewDataSource {
+//
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        guard let sections = CoreDataManager.sharedManager.fetchedResultsController.sections else {
+//        return 0}
+//        let sectionInfo = sections[section]
+//        return sectionInfo.numberOfObjects
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "Graph Cell",for: indexPath) as! GraphCell
+//
+//        configureCell(cell,at: indexPath)
+//
+//        return cell
+//
+//    }
+//
+//    func configureCell(_ cell: UITableViewCell,at indexPath: IndexPath){
+//        let conversationSegment = CoreDataManager.sharedManager.fetchedResultsController.object(at: indexPath)
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "Graph Cell",for: indexPath) as! GraphCell
+//        // Configure Cell
+//
+//        DispatchQueue.global().async{
+//            if let data = try? Data(contentsOf: conversationSegment.image!){
+//            if let image = UIImage(data: data){
+//                DispatchQueue.main.async{
+//                    cell.ImageView.image = image
+//                }
+//            }
+//            }
+//        }
+//
+//
+//
+//        //cell.ImageView = conversationSegment.image)
+//        cell.duration.text = "\(conversationSegment.duration)"
+//
+//    }
+//
+//
+//    func fetchAllPersons(){
+//      /*This class is delegate of fetchedResultsController protocol methods*/
+//      CoreDataManager.sharedManager.fetchedResultsController.delegate = self
+//      do{
+//
+//        /*initiate performFetch() call on fetchedResultsController*/
+//        try CoreDataManager.sharedManager.fetchedResultsController.performFetch()
+//
+//      }catch{
+//        print(error)
+//      }
+//
+//      }
+//    }
+//    func update(uuid: UUID?, start_time: Int32,image: URL?, conversationSegment: ConversationSegment) {
+//        CoreDataManager.sharedManager.update(uuid: uuid, start_time: start_time,image: image ,conversationSegment: conversationSegment)
+//    }
+     lazy var fetchedResultsController: NSFetchedResultsController<ConversationSegment> = {
+            // Create Fetch Request
+            let fetchRequest: NSFetchRequest<ConversationSegment> = ConversationSegment.fetchRequest()
+
+            // Configure Fetch Request
+            fetchRequest.sortDescriptors = [NSSortDescriptor(key: "createdAt", ascending: true)]
+
+            // Create Fetched Results Controller
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: appDelegate.persistentContainer.viewContext, sectionNameKeyPath: nil, cacheName: nil)
+
+            // Configure Fetched Results Controller
+            fetchedResultsController.delegate = self
+
+            return fetchedResultsController
+        }()
+
+        // MARK: - View Life Cycle
+
+        override func viewDidLoad() {
+            super.viewDidLoad()
+
+//            appDelegate.persistentContainer.loadPersistentStores { (persistentStoreDescription, error) in
+//                if let error = error {
+//                    print("Unable to Load Persistent Store")
+//                    print("\(error), \(error.localizedDescription)")
+//
+//                } else {
+//                    self.setupView()
+//
+//                    do {
+//                        try self.fetchedResultsController.performFetch()
+//                    } catch {
+//                        let fetchError = error as NSError
+//                        print("Unable to Perform Fetch Request")
+//                        print("\(fetchError), \(fetchError.localizedDescription)")
+//                    }
+//
+//                    self.updateView()
+//                }
+//            }
+            tableView.rowHeight = UITableView.automaticDimension
             //tableView.estimatedRowHeight = 160
-        self.tableView.rowHeight = 160.0
-        print("ListViewController loaded its view")
-          
+            tableView.delegate = self
+            tableView.dataSource = self
+            self.tableView.rowHeight = 160.0
+            print("ListViewController loaded its view")
+            
         }
-    }
-//    var conversations = [ConversationSegment](){
-//        didSet{
-//            updateView()
-//
-//        }
-//    }
-//
-//    private func updateView(){
-//        var hasConversations = false
-//
-//        if let hasConversations = fetchedResultsController.fetchedObjects{
-//            hasConversations = conversations.count > 0
-//        }
-//
-//        tableView.isHidden = !hasConversations
-//        messageLabel.isHidden = hasConversations
-//    }
-//    private func setupView(){
-//        setUpMessageLabel()
-//        updateView()
-//
-//    }
-//
-//    private func setUpMessageLabel(){
-//        messageLabel.text = "You dont have any conversation segments analyzed yet"
-//    }
-//
-//
 
-//    }
-//
+        // MARK: - View Methods
 
-extension ItemsViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let sections = CoreDataManager.sharedManager.fetchedResultsController.sections else {
-        return 0}
-        let sectionInfo = sections[section]
-        return sectionInfo.numberOfObjects
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Graph Cell",for: indexPath) as! GraphCell
+        func setupView() {
+            //setupMessageLabel()
 
-        configureCell(cell,at: indexPath)
-    
-        return cell
-        
-    }
-    
-    func configureCell(_ cell: UITableViewCell,at indexPath: IndexPath){
-        let conversationSegment = CoreDataManager.sharedManager.fetchedResultsController.object(at: indexPath)
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Graph Cell",for: indexPath) as! GraphCell
-        // Configure Cell
-        
-        DispatchQueue.global().async{
-            if let data = try? Data(contentsOf: conversationSegment.image!){
-            if let image = UIImage(data: data){
-                DispatchQueue.main.async{
-                    cell.ImageView.image = image
-                }
-            }
-            }
+            updateView()
         }
-        
-        
-        
-        //cell.ImageView = conversationSegment.image)
-        cell.duration.text = "\(conversationSegment.duration)"
-        
+
+        func updateView() {
+            var hasConversations = false
+
+            if let conversations = fetchedResultsController.fetchedObjects {
+                hasConversations = conversations.count > 0
+            }
+
+            tableView.isHidden = !hasConversations
+            //messageLabel.isHidden = hasConversations
+
+            //activityIndicatorView.stopAnimating()
+        }
+
+        // MARK: -
+
+        private func setupMessageLabel() {
+            //messageLabel.text = "You don't have any quotes yet."
+        }
+
     }
+
+extension ItemsViewController: UITableViewDataSource,UITableViewDelegate {
+
+        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            guard let conversations = fetchedResultsController.fetchedObjects else { return 0 }
+            return conversations.count
+        }
+
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
-    
-    func fetchAllPersons(){
-      /*This class is delegate of fetchedResultsController protocol methods*/
-      CoreDataManager.sharedManager.fetchedResultsController.delegate = self
-      do{
-        
-        /*initiate performFetch() call on fetchedResultsController*/
-        try CoreDataManager.sharedManager.fetchedResultsController.performFetch()
-        
-      }catch{
-        print(error)
-      }
-     
-      }
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Graph Cell",for: indexPath) as! GraphCell
+
+            // Fetch Quote
+            let conversation = fetchedResultsController.object(at: indexPath)
+
+            // Configure Cell
+              DispatchQueue.global().async{
+                        if let data = try? Data(contentsOf: conversation.image!){
+                        if let image = UIImage(data: data){
+                            DispatchQueue.main.async{
+                                cell.ImageView.image = image
+                            }
+                        }
+                        }
+                    }
+                    //cell.ImageView = conversationSegment.image)
+                    cell.duration.text = "\(conversation.duration)"
+
+            return cell
+        }
+
     }
-    func update(uuid: UUID?, start_time: Int32,image: URL?, conversationSegment: ConversationSegment) {
-        CoreDataManager.sharedManager.update(uuid: uuid, start_time: start_time,image: image ,conversationSegment: conversationSegment)
-    }
+
 
  
 extension UIImageView{
