@@ -38,19 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let container = NSPersistentContainer(name: "ConversationAnalysis")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error {
-//                print("Unable to Load Persistent Store")
-//                print("\(error), \(error.localizedDescription)")
+
                 fatalError("Unresolved error, \((error as NSError).userInfo)")
-            }else{
-                ItemsViewController().setupView()
-                do {
-                    try ItemsViewController().fetchedResultsController.performFetch()
-                }catch{
-                    let fetchError = error as NSError
-                    print("Unable to Perform Fetch Request")
-                    print("\(fetchError), \(fetchError.localizedDescription)")
-                }
-                ItemsViewController().updateView()
             }
         })
         return container
