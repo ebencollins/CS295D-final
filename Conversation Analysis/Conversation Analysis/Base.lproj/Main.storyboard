@@ -165,11 +165,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="duration" destination="zOc-iM-qVn" id="pCC-j7-2xY"/>
-                                            <outlet property="graphName" destination="8Fd-b6-Ces" id="6EQ-oc-MMX"/>
-                                            <outlet property="imageView" destination="fVU-92-sUO" id="gaE-Ho-1Xr"/>
-                                            <outlet property="name" destination="8Fd-b6-Ces" id="Dj0-ew-v8g"/>
-                                            <outlet property="timeStamp" destination="zOc-iM-qVn" id="7u5-B0-8aM"/>
+                                            <outlet property="ImageView" destination="fVU-92-sUO" id="UTb-V7-WGO"/>
+                                            <outlet property="duration" destination="zOc-iM-qVn" id="Vex-p3-Nic"/>
+                                            <outlet property="graphName" destination="8Fd-b6-Ces" id="N9i-qe-7hP"/>
                                             <segue destination="p0Z-FZ-yUD" kind="show" identifier="Detail Graph" id="hNJ-co-Wfv"/>
                                         </connections>
                                     </tableViewCell>
