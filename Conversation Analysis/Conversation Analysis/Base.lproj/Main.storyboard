@@ -117,7 +117,7 @@
             </objects>
             <point key="canvasLocation" x="-883" y="-150"/>
         </scene>
-        <!--Item-->
+        <!--Items View Controller-->
         <scene sceneID="5UT-6X-NYP">
             <objects>
                 <viewController id="AzO-3o-561" customClass="ItemsViewController" customModule="Conversation_Analysis" customModuleProvider="target" sceneMemberID="viewController">
@@ -177,7 +177,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="nXE-BI-fPv"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="6vo-ae-qxK"/>
+                    <tabBarItem key="tabBarItem" title="" image="list.bullet" catalog="system" id="6vo-ae-qxK"/>
                     <connections>
                         <outlet property="tableView" destination="1ME-AE-RGy" id="peb-XH-vdE"/>
                     </connections>
@@ -360,19 +360,20 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="6sZ-za-QHW" firstAttribute="top" secondItem="yHn-Mf-Gez" secondAttribute="bottom" constant="8" id="3sM-3T-Lci"/>
-                            <constraint firstItem="qED-pi-hsE" firstAttribute="top" secondItem="Pd9-C5-FhS" secondAttribute="top" constant="139" id="58x-Dr-iyK"/>
-                            <constraint firstItem="qED-pi-hsE" firstAttribute="centerX" secondItem="Qxe-bX-Cif" secondAttribute="centerX" id="H05-5b-7dG"/>
-                            <constraint firstItem="yHn-Mf-Gez" firstAttribute="leading" secondItem="Pd9-C5-FhS" secondAttribute="leading" constant="60" id="hL6-F6-YsP"/>
-                            <constraint firstItem="6sZ-za-QHW" firstAttribute="leading" secondItem="Pd9-C5-FhS" secondAttribute="leading" constant="166" id="k88-6t-f9w"/>
-                            <constraint firstItem="Pd9-C5-FhS" firstAttribute="bottom" secondItem="6sZ-za-QHW" secondAttribute="bottom" constant="221" id="mFY-a0-bEG"/>
-                            <constraint firstItem="yHn-Mf-Gez" firstAttribute="top" secondItem="qED-pi-hsE" secondAttribute="bottom" constant="8" id="noA-gl-gtW"/>
-                            <constraint firstItem="qED-pi-hsE" firstAttribute="centerX" secondItem="yHn-Mf-Gez" secondAttribute="centerX" id="o6l-Zj-A0b"/>
+                            <constraint firstItem="6sZ-za-QHW" firstAttribute="top" secondItem="yHn-Mf-Gez" secondAttribute="bottom" constant="8" id="2np-bX-Rf9"/>
+                            <constraint firstItem="qED-pi-hsE" firstAttribute="top" secondItem="Pd9-C5-FhS" secondAttribute="top" constant="139" id="PRk-O6-UIJ"/>
+                            <constraint firstItem="Pd9-C5-FhS" firstAttribute="bottom" secondItem="6sZ-za-QHW" secondAttribute="bottom" constant="221" id="QEY-C0-FHY"/>
+                            <constraint firstItem="qED-pi-hsE" firstAttribute="centerX" secondItem="Qxe-bX-Cif" secondAttribute="centerX" id="Tqf-H2-j4k"/>
+                            <constraint firstItem="yHn-Mf-Gez" firstAttribute="top" secondItem="qED-pi-hsE" secondAttribute="bottom" constant="8" id="ZAE-a9-Nnz"/>
+                            <constraint firstItem="qED-pi-hsE" firstAttribute="centerX" secondItem="yHn-Mf-Gez" secondAttribute="centerX" id="ZTW-qI-KsS"/>
+                            <constraint firstItem="yHn-Mf-Gez" firstAttribute="centerX" secondItem="6sZ-za-QHW" secondAttribute="centerX" id="c6t-xl-Yrk"/>
+                            <constraint firstItem="yHn-Mf-Gez" firstAttribute="leading" secondItem="Pd9-C5-FhS" secondAttribute="leading" constant="60" id="mLT-0u-7Qt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Pd9-C5-FhS"/>
                     </view>
                     <navigationItem key="navigationItem" title="Back " id="ODW-JV-BGf"/>
                     <connections>
+                        <outlet property="imageView" destination="yHn-Mf-Gez" id="XF6-Vk-A1l"/>
                         <outlet property="name" destination="6sZ-za-QHW" id="TWs-DD-L43"/>
                         <outlet property="timeStamp" destination="qED-pi-hsE" id="2IT-Io-DXa"/>
                     </connections>
@@ -383,6 +384,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="list.bullet" catalog="system" width="128" height="88"/>
         <image name="mic.fill" catalog="system" width="108" height="128"/>
     </resources>
 </document>

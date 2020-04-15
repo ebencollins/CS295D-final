@@ -17,12 +17,13 @@ class ItemsViewController: UIViewController, NSFetchedResultsControllerDelegate{
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var itemStore: ItemStore!
     var segments:[(duration: Int, start:Int, imageData:Data)] = []
+    var conversations: [NSManagedObjectModel]=[]
     
     @IBOutlet var tableView:UITableView!
     
     
     
-    var conversations: [NSManagedObjectModel]=[]
+    
     
     lazy var fetchedResultsController: NSFetchedResultsController<Conversation> = {
         let context = appDelegate.persistentContainer.viewContext
@@ -33,6 +34,7 @@ class ItemsViewController: UIViewController, NSFetchedResultsControllerDelegate{
         controller.delegate = self
         return controller
     }()
+    
     
     // MARK: - View Life Cycle
     
@@ -51,6 +53,7 @@ class ItemsViewController: UIViewController, NSFetchedResultsControllerDelegate{
         tableView.delegate = self
         tableView.dataSource = self
         self.tableView.rowHeight = 160.0
+        NSObject.self.load()
         print("ListViewController loaded its view")
         
     }
@@ -88,8 +91,8 @@ extension ItemsViewController: UITableViewDataSource,UITableViewDelegate {
         
         // Fetch Quote
         let conversation = fetchedResultsController.object(at: indexPath)
-        cell.duration.text = "\(conversation.duration)"
-        
+        cell.duration.text = "Duration: \(conversation.duration)"
+        cell.graphName.text = "\(conversation.hashValue)"
         let segments = conversation.getSegments()
         if let segment = segments.first {
             // Configure Cell
@@ -104,15 +107,38 @@ extension ItemsViewController: UITableViewDataSource,UITableViewDelegate {
             }
         }
         
+        
         return cell
+    // EJ: - Segueway to the graph detailed view @indexPath Cell
+        
+       
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) { // If the triggered segue is the "showItem" segue
+           switch segue.identifier {
+
+               case "Detail Graph"?:
+
+               // Figure out which row was just tapped
+               if let indexPath = tableView.indexPathForSelectedRow?.row {
+
+                   // Get the item associated with this row and pass it along
+                let conversation = fetchedResultsController.object(at: IndexPath(row:indexPath, section:0))
+                let dgv = segue.destination as! DetailGraphView
+
+                dgv.conversation = conversation
+               }
+               default:
+                   preconditionFailure("Unexpected segue identifier.")
+               }
+       }
+       
     
 }
 
 
 
 extension UIImageView{
-    func load(url: URL){
+     func load(url: URL){
         DispatchQueue.global().async{ [weak self] in
             if let data = try? Data(contentsOf: url){
                 if let image = UIImage(data: data){

@@ -12,48 +12,10 @@ import CoreData
 import UIKit
 
 class CoreDataManager {
-//    static let sharedManager = CoreDataManager()
 
-//    lazy var fetchedResultsController: NSFetchedResultsController<ConversationSegment> = {
-//        // Initialize Fetch Request
-//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//
-//        let managedContext = CoreDataManager.sharedManager.persistentContainer.viewContext
-//
-//
-//        let fetchRequest = NSFetchRequest<ConversationSegment>(entityName: "ConversationSegment")
-//
-//        // Add Sort Descriptors
-//        let sortDescriptor = NSSortDescriptor(key: "uuid", ascending: false)
-//        fetchRequest.sortDescriptors = [sortDescriptor]
-//
-//        // Initialize Fetched Results Controller
-//        let fetchedResultsController = NSFetchedResultsController<ConversationSegment>(fetchRequest: fetchRequest, managedObjectContext: managedContext, sectionNameKeyPath: nil, cacheName: nil)
-//
-//        // Configure Fetched Results Controller
-//    //    fetchedResultsController.delegate = self
-//
-//        return fetchedResultsController
-//      }()
-  
-  //1
   static let sharedManager = CoreDataManager()
   private init() {} // Prevent clients from creating another instance.
-  
-//  //2
-//  lazy var persistentContainer: NSPersistentContainer = {
-//
-//    let container = NSPersistentContainer(name: "ConversationSegment")
-//
-//
-//    container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-//
-//      if let error = error as NSError? {
-//        fatalError("Unresolved error \(error), \(error.userInfo)")
-//      }
-//    })
-//    return container
-//  }()
+
 
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
   
@@ -111,14 +73,14 @@ class CoreDataManager {
     }
   }
   
-  func fetchAllPersons() -> [ConversationSegment]?{
+  func fetchAllConversationss() -> [ConversationSegment]?{
     let managedContext = appDelegate.persistentContainer.viewContext
     let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ConversationSegment")
     
     /*You hand the fetch request over to the managed object context to do the heavy lifting. fetch(_:) returns an array of managed objects meeting the criteria specified by the fetch request.*/
     do {
-      let people = try managedContext.fetch(fetchRequest)
-      return people as? [ConversationSegment]
+      let conversations = try managedContext.fetch(fetchRequest)
+      return conversations as? [ConversationSegment]
     } catch let error as NSError {
       print("Could not fetch. \(error), \(error.userInfo)")
       return nil
