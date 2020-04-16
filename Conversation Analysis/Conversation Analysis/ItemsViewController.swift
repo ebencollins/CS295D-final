@@ -21,10 +21,6 @@ class ItemsViewController: UIViewController, NSFetchedResultsControllerDelegate{
     
     @IBOutlet var tableView:UITableView!
     
-    
-    
-    
-    
     lazy var fetchedResultsController: NSFetchedResultsController<Conversation> = {
         let context = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<Conversation>(entityName: "Conversation")
@@ -37,15 +33,13 @@ class ItemsViewController: UIViewController, NSFetchedResultsControllerDelegate{
     
     
     // MARK: - View Life Cycle
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.updateView()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // fetch conversations
-        do {
-            try fetchedResultsController.performFetch()
-        } catch {
-            fatalError("Failed to fetch entities: \(error)")
-        }
         self.setupView()
         
         tableView.rowHeight = UITableView.automaticDimension
@@ -65,6 +59,13 @@ class ItemsViewController: UIViewController, NSFetchedResultsControllerDelegate{
     }
     
     func updateView() {
+        // fetch conversations
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            fatalError("Failed to fetch entities: \(error)")
+        }
+        
         var hasConversations = false
         
         if let conversations = fetchedResultsController.fetchedObjects {
@@ -73,6 +74,7 @@ class ItemsViewController: UIViewController, NSFetchedResultsControllerDelegate{
         
         tableView.isHidden = !hasConversations
         
+        self.tableView.reloadData()
         //activityIndicatorView.stopAnimating()
     }
     
