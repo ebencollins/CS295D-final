@@ -21,7 +21,7 @@ class DetailGraphView: UIViewController{
         if let segment = segments.first {
             // Configure Cell
             DispatchQueue.global().async{
-                if let data = try? Data(contentsOf: segment.image!){
+                if let data = try? Data(contentsOf: segment.image){
                     if let image = UIImage(data: data){
                         DispatchQueue.main.async{
                             self.imageView.image = image

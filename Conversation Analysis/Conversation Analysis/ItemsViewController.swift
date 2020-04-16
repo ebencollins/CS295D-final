@@ -97,8 +97,11 @@ extension ItemsViewController: UITableViewDataSource,UITableViewDelegate {
         if let segment = segments.first {
             // Configure Cell
             DispatchQueue.global().async{
-                if let data = try? Data(contentsOf: segment.image!){
+                print(segment.image)
+                if let data = try? Data(contentsOf: segment.image){
+                    print("Data")
                     if let image = UIImage(data: data){
+                        print("image")
                         DispatchQueue.main.async{
                             cell.ImageView.image = image
                         }

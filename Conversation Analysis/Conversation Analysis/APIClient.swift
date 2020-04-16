@@ -80,15 +80,15 @@ class ConversationsAPIClient {
         var result = false;
         for segment in conversation.segments as! Set<ConversationSegment> {
             let parameters:[String:String] = [
-                "uuid": segment.uuid!.uuidString,
+                "uuid": segment.uuid.uuidString,
                 "conversation": conversation.uuid!.uuidString,
                 "start_time": String(segment.start_time),
                 "duration": String(segment.duration),
             ]
             AF.upload(multipartFormData:
                 { multipartFormData in
-                    multipartFormData.append(segment.image!, withName: "image")
-                    multipartFormData.append((segment.uuid?.uuidString.data(using: String.Encoding.utf8, allowLossyConversion: false)!)!, withName :"uuid")
+                    multipartFormData.append(segment.image, withName: "image")
+                    multipartFormData.append((segment.uuid.uuidString.data(using: String.Encoding.utf8, allowLossyConversion: false)!), withName :"uuid")
                     multipartFormData.append((segment.conversation?.uuid?.uuidString.data(using: String.Encoding.utf8, allowLossyConversion: false)!)!, withName :"conversation")
                     multipartFormData.append(("\(segment.start_time)".data(using: String.Encoding.utf8, allowLossyConversion: false)!), withName :"start_time")
                     multipartFormData.append(("\(segment.duration)".data(using: String.Encoding.utf8, allowLossyConversion: false)!), withName :"duration")
