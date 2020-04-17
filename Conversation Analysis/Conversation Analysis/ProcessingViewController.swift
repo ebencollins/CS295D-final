@@ -19,7 +19,6 @@ class ProcessingViewController: UIViewController {
     var segments:[(duration: Int, start:Int, imageData:Data)] = []
     
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var imageView2: UIImageView!
     @IBOutlet var dataCollectionSucessesful: UILabel!
     @IBOutlet var audioRecordingDeleted: UILabel!
     @IBOutlet var timeInterval: UILabel!
@@ -46,11 +45,6 @@ class ProcessingViewController: UIViewController {
                 // read to buffer
                 let buf = AVAudioPCMBuffer(pcmFormat: format!, frameCapacity: AVAudioFrameCount(file.length))
                 try file.read(into: buf!)
-                
-                // TESTING
-                // read to second buffer
-                let buf2 = AVAudioPCMBuffer(pcmFormat: format!, frameCapacity: AVAudioFrameCount(file.length))
-                try file.read(into: buf2!, frameCount: 100)
                 
                 try self.deleteAudioFile()
                 
@@ -79,29 +73,6 @@ class ProcessingViewController: UIViewController {
                 self.duration = samples.count / file.fileFormat.sampleRate.toInt()
                 self.segments.append((duration: 0, start: 0, imageData: imageData!))
                 
-                // TESTING
-                // create a second sample w/ frame count of 100
-                let samples2 = Array(UnsafeBufferPointer(start: buf2?.floatChannelData![0], count:Int(buf2!.frameLength)))
-                let data2 = EssentiaWrapper().extract(samples2);
-                
-                // create new mb96
-                var mb962 = data2?.mb96 as! [[Float]]
-                mb962 = mb962.map({ $0.map{ log10($0) } }).transposed()
-                
-                // create new heatmap
-                var hm2 = Heatmap<[[Float]]>(mb962);
-                hm2.colorMap = ColorMap.viridis
-                hm2.showGrid = false
-                hm2.plotTitle = PlotTitle("Title")
-                hm2.markerTextSize = 0
-                hm2.markerThickness = 0
-                hm2.drawGraph(size: Size(width: Float(CGFloat(1200)), height: Float(768)), renderer: renderer)
-                
-                let imageData2 = Data(base64Encoded: renderer.base64Png())
-                
-                // append to segments
-                self.segments.append((duration: 0, start: 0, imageData: imageData2!))
-                
                 DispatchQueue.main.async {
                     // dismiss loading view
                     self.dismiss(animated: true, completion: nil)
@@ -109,10 +80,6 @@ class ProcessingViewController: UIViewController {
                     let image = UIImage(data: imageData!)
                     self.imageView.image = image
                     self.imageView.contentMode = .scaleAspectFit
-                    
-                    let image2 = UIImage(data: imageData2!)
-                    self.imageView2.image = image2
-                    self.imageView2.contentMode = .scaleAspectFit
 
                     // unhide everything
                     self.setHidden(false)
