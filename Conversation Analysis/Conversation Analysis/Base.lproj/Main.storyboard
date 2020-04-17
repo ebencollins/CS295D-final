@@ -237,9 +237,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="U1h-sJ-HHY">
-                                <rect key="frame" x="20" y="139" width="335" height="302"/>
-                            </imageView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cUa-GD-GmD">
                                 <rect key="frame" x="75" y="587" width="48" height="30"/>
                                 <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -250,12 +247,6 @@
                                     <action selector="onCancel:" destination="Jpf-2B-sZi" eventType="touchUpInside" id="WFh-Ov-a1A"/>
                                 </connections>
                             </button>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TIme Interval" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ab-Mh-lZF">
-                                <rect key="frame" x="0.0" y="446" width="375" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Send data for research? " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CPW-qW-oRh">
                                 <rect key="frame" x="0.0" y="533.5" width="375" height="33.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
@@ -284,24 +275,17 @@
                             <constraint firstItem="CPW-qW-oRh" firstAttribute="leading" secondItem="GYB-gq-aNJ" secondAttribute="leading" id="01c-JJ-iYx"/>
                             <constraint firstItem="yk1-5f-QuL" firstAttribute="trailing" secondItem="GYB-gq-aNJ" secondAttribute="trailing" id="2M8-rJ-hPa"/>
                             <constraint firstItem="Fd1-ZX-tvX" firstAttribute="leading" secondItem="GYB-gq-aNJ" secondAttribute="leading" id="8wi-mp-Uqu"/>
-                            <constraint firstItem="9Ab-Mh-lZF" firstAttribute="leading" secondItem="GYB-gq-aNJ" secondAttribute="leading" id="92X-3m-4ix"/>
                             <constraint firstItem="GYB-gq-aNJ" firstAttribute="bottom" secondItem="cUa-GD-GmD" secondAttribute="bottom" constant="50" id="EJg-Ph-FO6"/>
                             <constraint firstItem="Fd1-ZX-tvX" firstAttribute="trailing" secondItem="GYB-gq-aNJ" secondAttribute="trailing" id="HPb-Fr-Ilt"/>
-                            <constraint firstItem="CPW-qW-oRh" firstAttribute="top" secondItem="9Ab-Mh-lZF" secondAttribute="bottom" constant="66.5" id="IUb-Lr-j2U"/>
                             <constraint firstItem="Kjy-H9-hnN" firstAttribute="top" secondItem="CPW-qW-oRh" secondAttribute="bottom" constant="20" id="KZU-Kh-ZaS"/>
                             <constraint firstItem="cUa-GD-GmD" firstAttribute="top" secondItem="CPW-qW-oRh" secondAttribute="bottom" constant="20" id="Net-v8-vnZ"/>
-                            <constraint firstItem="9Ab-Mh-lZF" firstAttribute="top" secondItem="U1h-sJ-HHY" secondAttribute="bottom" constant="5" id="VNV-lG-0VJ"/>
                             <constraint firstItem="GYB-gq-aNJ" firstAttribute="bottom" secondItem="Kjy-H9-hnN" secondAttribute="bottom" constant="50" id="WDc-Ea-Nts"/>
                             <constraint firstItem="Fd1-ZX-tvX" firstAttribute="top" secondItem="GYB-gq-aNJ" secondAttribute="top" constant="40" id="byp-pg-Yh5"/>
-                            <constraint firstItem="9Ab-Mh-lZF" firstAttribute="trailing" secondItem="GYB-gq-aNJ" secondAttribute="trailing" id="dJo-Xo-ROc"/>
                             <constraint firstItem="yk1-5f-QuL" firstAttribute="leading" secondItem="GYB-gq-aNJ" secondAttribute="leading" id="gc1-ye-z3I"/>
                             <constraint firstItem="GYB-gq-aNJ" firstAttribute="trailing" secondItem="Kjy-H9-hnN" secondAttribute="trailing" constant="75" id="jeD-9g-dKd"/>
-                            <constraint firstItem="U1h-sJ-HHY" firstAttribute="top" secondItem="GYB-gq-aNJ" secondAttribute="top" constant="139" id="jfL-KJ-IEh"/>
                             <constraint firstItem="yk1-5f-QuL" firstAttribute="top" secondItem="Fd1-ZX-tvX" secondAttribute="bottom" constant="5" id="lIo-VQ-IRD"/>
                             <constraint firstItem="CPW-qW-oRh" firstAttribute="trailing" secondItem="GYB-gq-aNJ" secondAttribute="trailing" id="u53-fy-jiQ"/>
-                            <constraint firstItem="GYB-gq-aNJ" firstAttribute="trailing" secondItem="U1h-sJ-HHY" secondAttribute="trailing" constant="20" id="vUO-Ws-ygb"/>
                             <constraint firstItem="cUa-GD-GmD" firstAttribute="leading" secondItem="GYB-gq-aNJ" secondAttribute="leading" constant="75" id="wkQ-a4-coz"/>
-                            <constraint firstItem="U1h-sJ-HHY" firstAttribute="leading" secondItem="GYB-gq-aNJ" secondAttribute="leading" constant="20" id="yXJ-4W-kWU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GYB-gq-aNJ"/>
                     </view>
@@ -310,10 +294,8 @@
                         <outlet property="audioRecordingDeleted" destination="yk1-5f-QuL" id="QJ7-Fo-d3I"/>
                         <outlet property="cancelButton" destination="cUa-GD-GmD" id="mNc-WR-WTp"/>
                         <outlet property="dataCollectionSucessesful" destination="Fd1-ZX-tvX" id="avf-De-1vI"/>
-                        <outlet property="imageView" destination="U1h-sJ-HHY" id="6BH-20-7lZ"/>
                         <outlet property="sendButton" destination="Kjy-H9-hnN" id="Fxx-cn-TG3"/>
                         <outlet property="sendDataForResearch" destination="CPW-qW-oRh" id="N65-6x-kqH"/>
-                        <outlet property="timeInterval" destination="9Ab-Mh-lZF" id="lac-YA-GDO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HLq-Ns-I1Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

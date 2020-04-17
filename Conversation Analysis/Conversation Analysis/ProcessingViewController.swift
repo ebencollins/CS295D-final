@@ -18,10 +18,8 @@ class ProcessingViewController: UIViewController {
     var duration:Int?
     var segments:[(duration: Int, start:Int, imageData:Data)] = []
     
-    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet var dataCollectionSucessesful: UILabel!
     @IBOutlet var audioRecordingDeleted: UILabel!
-    @IBOutlet var timeInterval: UILabel!
     @IBOutlet var sendDataForResearch: UILabel!
     @IBOutlet var sendButton: UIButton!
     @IBOutlet var cancelButton: UIButton!
@@ -56,21 +54,8 @@ class ProcessingViewController: UIViewController {
                 var mb96 = data?.mb96 as! [[Float]]
                 mb96 = mb96.map({ $0.map{ log10($0) } }).transposed()
                 
-                // create heatmap
-                let renderer = AGGRenderer()
-                var hm = Heatmap<[[Float]]>(mb96);
-                hm.colorMap = ColorMap.viridis
-                hm.showGrid = false
-                hm.plotTitle = PlotTitle("Title")
-                hm.markerTextSize = 0
-                hm.markerThickness = 0
-                hm.drawGraph(size: Size(width: Float(CGFloat(1200)), height: Float(768)), renderer: renderer)
-                
-                let imageData = Data(base64Encoded: renderer.base64Png())
-                
                 self.date = Date()
                 self.duration = samples.count / file.fileFormat.sampleRate.toInt()
-                self.segments.append((duration: 0, start: 0, imageData: imageData!))
                 
                 // loop through mb96 data and programatically create image views of each segment
                 for n in 2...4 {
@@ -84,36 +69,32 @@ class ProcessingViewController: UIViewController {
                     let segmentDuration = (((data?.mb96.dropLast(dropAmount).count)!)/fps)
                     print(segmentDuration)
                     
-                    // create heatmap of segment
-                    var segmentHm = Heatmap<[[Float]]>(mb96Segment);
-                    segmentHm.colorMap = ColorMap.viridis
-                    segmentHm.showGrid = false
-                    segmentHm.plotTitle = PlotTitle("Title")
-                    segmentHm.markerTextSize = 0
-                    segmentHm.markerThickness = 0
-                    segmentHm.drawGraph(size: Size(width: Float(CGFloat(1200)), height: Float(768)), renderer: renderer)
+                    // create heatmap
+                    let renderer = AGGRenderer()
+                    var hm = Heatmap<[[Float]]>(mb96Segment);
+                    hm.colorMap = ColorMap.viridis
+                    hm.showGrid = false
+                    hm.plotTitle = PlotTitle("Title")
+                    hm.markerTextSize = 0
+                    hm.markerThickness = 0
+                    hm.drawGraph(size: Size(width: Float(CGFloat(1200)), height: Float(768)), renderer: renderer)
                     
-                    // add UIImageView to view programatically
-                    let imageDataSegment = Data(base64Encoded: renderer.base64Png())
+                    let imageData = Data(base64Encoded: renderer.base64Png())
                     
                     // add image to view
                     DispatchQueue.main.async {
-                        let imageViewToAppend = UIImageView(image: UIImage(data: imageDataSegment!))
-                        imageViewToAppend.frame = CGRect(x: 0, y: n*100, width: 200, height: 100)
-                        self.view.addSubview(imageViewToAppend)
+                        let imageView = UIImageView(image: UIImage(data: imageData!))
+                        imageView.frame = CGRect(x: 0, y: n*100, width: 200, height: 100)
+                        self.view.addSubview(imageView)
                     }
                     
                     // add to segments w/ proper duration and start
-                    self.segments.append((duration: 0, start: 0, imageData: imageDataSegment!))
+                    self.segments.append((duration: 0, start: 0, imageData: imageData!))
                 }
                 
                 DispatchQueue.main.async {
                     // dismiss loading view
                     self.dismiss(animated: true, completion: nil)
-                    // show plot
-                    let image = UIImage(data: imageData!)
-                    self.imageView.image = image
-                    self.imageView.contentMode = .scaleAspectFit
 
                     // unhide everything
                     self.setHidden(false)
@@ -166,8 +147,6 @@ class ProcessingViewController: UIViewController {
             // hides objects
             dataCollectionSucessesful.isHidden = true
             audioRecordingDeleted.isHidden = true
-            imageView.isHidden = true
-            timeInterval.isHidden = true
             sendDataForResearch.isHidden = true
             sendButton.isHidden = true
             cancelButton.isHidden = true
@@ -175,8 +154,6 @@ class ProcessingViewController: UIViewController {
             // unhides objects
             dataCollectionSucessesful.isHidden = false
             audioRecordingDeleted.isHidden = false
-            imageView.isHidden = false
-            timeInterval.isHidden = false
             sendDataForResearch.isHidden = false
             sendButton.isHidden = false
             cancelButton.isHidden = false
