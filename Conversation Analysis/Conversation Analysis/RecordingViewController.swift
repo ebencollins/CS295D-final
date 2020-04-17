@@ -27,7 +27,6 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
     
     @IBOutlet var logoImage: UIImageView!
     @IBOutlet weak var button: UIButton!
-    @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var timerLabel: UILabel!
     
     @IBAction func record(_ sender: Any) {
@@ -50,7 +49,6 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
                 recorder.delegate = self
                 recorder.record()
                 button.setTitle("Stop Recording?", for: .normal)
-                playButton.isEnabled = false
                 
             } catch {
                 showErrorAlert()
@@ -60,7 +58,6 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
             //stop recording
             recorder.stop()
             button.setTitle("", for: .normal)
-            playButton.isEnabled = true
             recorder = nil
             
             timer.invalidate()
@@ -140,8 +137,8 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
             case .OK_SAVED:
                 self.performSegue(withIdentifier: "RecordingProcessedDetailViewSegue", sender: nil)
             case .OK_DELETED:
-                // TODO display toast
-                print("deleted")
+                // display toast
+                showToast(message: "Deleted")
             case .ERROR:
                 showErrorAlert()
             }
@@ -167,6 +164,24 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
         let alert = UIAlertController(title: "Oops!", message: "Something went wrong!", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "dismiss", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
+    }
+    
+    func showToast(message: String) {
+
+        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height-100, width: 150, height: 35))
+        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        toastLabel.textColor = UIColor.white
+        toastLabel.textAlignment = .center;
+        toastLabel.text = message
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 10;
+        toastLabel.clipsToBounds  =  true
+        self.view.addSubview(toastLabel)
+        UIView.animate(withDuration: 4.0, delay: 0.1, options: .curveEaseOut, animations: {
+             toastLabel.alpha = 0.0
+        }, completion: {(isCompleted) in
+            toastLabel.removeFromSuperview()
+        })
     }
 
 }
