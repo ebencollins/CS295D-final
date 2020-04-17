@@ -127,7 +127,7 @@
                                                     <rect key="frame" x="15" y="13" width="0.0" height="143"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="timestamp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zOc-iM-qVn">
-                                                    <rect key="frame" x="-46" y="74.5" width="0.0" height="20.5"/>
+                                                    <rect key="frame" x="-46" y="74.5" width="0.0" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -343,6 +343,41 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yHn-Mf-Gez">
                                 <rect key="frame" x="60" y="168" width="255" height="229"/>
                             </imageView>
+                            <view contentMode="scaleToFill" id="1Ut-xM-RRa">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="04P-sm-3R7">
+                                        <rect key="frame" x="0.0" y="94" width="375" height="310"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Stamp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jcj-kJ-gGq">
+                                        <rect key="frame" x="0.0" y="412" width="375" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RPO-au-9Ek">
+                                        <rect key="frame" x="0.0" y="626" width="375" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="RPO-au-9Ek" firstAttribute="bottom" secondItem="hKr-ls-fJ4" secondAttribute="bottom" id="0lh-OL-lrX"/>
+                                    <constraint firstItem="RPO-au-9Ek" firstAttribute="trailing" secondItem="hKr-ls-fJ4" secondAttribute="trailing" id="2Gx-qi-t3m"/>
+                                    <constraint firstItem="Jcj-kJ-gGq" firstAttribute="trailing" secondItem="hKr-ls-fJ4" secondAttribute="trailing" id="P2c-UV-eyS"/>
+                                    <constraint firstItem="Jcj-kJ-gGq" firstAttribute="top" secondItem="04P-sm-3R7" secondAttribute="bottom" constant="8" id="agV-yL-jbw"/>
+                                    <constraint firstItem="04P-sm-3R7" firstAttribute="trailing" secondItem="hKr-ls-fJ4" secondAttribute="trailing" id="dGp-Vh-37l"/>
+                                    <constraint firstItem="04P-sm-3R7" firstAttribute="leading" secondItem="hKr-ls-fJ4" secondAttribute="leading" id="ePn-JL-l0W"/>
+                                    <constraint firstItem="hKr-ls-fJ4" firstAttribute="bottom" secondItem="04P-sm-3R7" secondAttribute="bottom" constant="243" id="geO-oU-xoL"/>
+                                    <constraint firstItem="04P-sm-3R7" firstAttribute="top" secondItem="hKr-ls-fJ4" secondAttribute="top" constant="94" id="iiM-HU-UtU"/>
+                                    <constraint firstItem="RPO-au-9Ek" firstAttribute="leading" secondItem="hKr-ls-fJ4" secondAttribute="leading" id="o7L-qr-Bdt"/>
+                                    <constraint firstItem="Jcj-kJ-gGq" firstAttribute="leading" secondItem="hKr-ls-fJ4" secondAttribute="leading" id="w9F-Ej-yTo"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="hKr-ls-fJ4"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -359,9 +394,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Back " id="ODW-JV-BGf"/>
                     <connections>
-                        <outlet property="imageView" destination="yHn-Mf-Gez" id="XF6-Vk-A1l"/>
-                        <outlet property="name" destination="6sZ-za-QHW" id="TWs-DD-L43"/>
-                        <outlet property="timeStamp" destination="qED-pi-hsE" id="2IT-Io-DXa"/>
+                        <outlet property="imageView" destination="04P-sm-3R7" id="4H4-bh-Gee"/>
+                        <outlet property="name" destination="RPO-au-9Ek" id="yMS-dM-bFD"/>
+                        <outlet property="timeStamp" destination="Jcj-kJ-gGq" id="0Yd-RL-uFc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V9N-7W-FiR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

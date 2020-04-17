@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		007149D223FCC77D0025E580 /* RecordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007149D123FCC77D0025E580 /* RecordingViewController.swift */; };
 		007149D423FCC9780025E580 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007149D323FCC9780025E580 /* ListViewController.swift */; };
+		007C895F2449EB1B006E2856 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007C895E2449EB1B006E2856 /* DetailViewController.swift */; };
 		00D884232400540B00DB1FDE /* ProcessingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D884222400540B00DB1FDE /* ProcessingViewController.swift */; };
 		AB7337E9243CD0B00036D539 /* GraphDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7337E8243CD0AF0036D539 /* GraphDetailView.swift */; };
 		AB7337EB243CD4A50036D539 /* libs in Resources */ = {isa = PBXBuildFile; fileRef = AB7337EA243CD4A50036D539 /* libs */; };
@@ -33,7 +34,6 @@
 		B2A892DD241582E9009558B4 /* SwiftPlot in Frameworks */ = {isa = PBXBuildFile; productRef = B2A892DC241582E9009558B4 /* SwiftPlot */; };
 		B2A892DF241582E9009558B4 /* AGGRenderer in Frameworks */ = {isa = PBXBuildFile; productRef = B2A892DE241582E9009558B4 /* AGGRenderer */; };
 		B2A892E12415871E009558B4 /* libfreetype.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2A892E024158710009558B4 /* libfreetype.a */; };
-		B2B043972403040300795061 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B043962403040300795061 /* DetailViewController.swift */; };
 		B2BD154B2426EEE0000167EA /* ConversationAnalysis.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B2BD15492426EEDF000167EA /* ConversationAnalysis.xcdatamodeld */; };
 		B2BD158824270433000167EA /* ConversationSegment+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BD158424270433000167EA /* ConversationSegment+CoreDataClass.swift */; };
 		B2BD158924270433000167EA /* ConversationSegment+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BD158524270433000167EA /* ConversationSegment+CoreDataProperties.swift */; };
@@ -63,7 +63,7 @@
 /* Begin PBXFileReference section */
 		007149D123FCC77D0025E580 /* RecordingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingViewController.swift; sourceTree = "<group>"; };
 		007149D323FCC9780025E580 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
-		00CE0B742408123400AC093B /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		007C895E2449EB1B006E2856 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = ../../../../.Trash/DetailViewController.swift; sourceTree = "<group>"; };
 		00D884222400540B00DB1FDE /* ProcessingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingViewController.swift; sourceTree = "<group>"; };
 		AB7337E8243CD0AF0036D539 /* GraphDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphDetailView.swift; sourceTree = "<group>"; };
 		AB7337EA243CD4A50036D539 /* libs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = libs; sourceTree = "<group>"; };
@@ -92,7 +92,6 @@
 		B2A4AF5B2432E7B90023112A /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		B2A4AF602435B9E20023112A /* Date+isoformat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+isoformat.swift"; sourceTree = "<group>"; };
 		B2A892E024158710009558B4 /* libfreetype.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libfreetype.a; path = ../libs/lib/libfreetype.a; sourceTree = "<group>"; };
-		B2B043962403040300795061 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		B2B043982403049000795061 /* Conversation Analysis-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Conversation Analysis-Bridging-Header.h"; sourceTree = "<group>"; };
 		B2B0439D2403057E00795061 /* libessentia.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libessentia.a; path = ../essentia/build/src/libessentia.a; sourceTree = "<group>"; };
 		B2B0439E2403058B00795061 /* essentia.pc */ = {isa = PBXFileReference; lastKnownFileType = text; name = essentia.pc; path = ../essentia/build/essentia.pc; sourceTree = "<group>"; };
@@ -179,12 +178,11 @@
 				B26A806E23F30879009DD7D8 /* Main.storyboard */,
 				00D884222400540B00DB1FDE /* ProcessingViewController.swift */,
 				007149D123FCC77D0025E580 /* RecordingViewController.swift */,
-				00CE0B742408123400AC093B /* DetailViewController.swift */,
+				007C895E2449EB1B006E2856 /* DetailViewController.swift */,
 				007149D323FCC9780025E580 /* ListViewController.swift */,
 				B26A807123F3087C009DD7D8 /* Assets.xcassets */,
 				B26A807323F3087C009DD7D8 /* LaunchScreen.storyboard */,
 				B26A807623F3087C009DD7D8 /* Info.plist */,
-				B2B043962403040300795061 /* DetailViewController.swift */,
 				B2B043982403049000795061 /* Conversation Analysis-Bridging-Header.h */,
 				B2A3B6AD2410AC03002A6F3F /* EssentiaWrapper.h */,
 				B2A3B6AE2410AC03002A6F3F /* EssentiaWrapper.mm */,
@@ -403,7 +401,7 @@
 				B26A806923F30879009DD7D8 /* AppDelegate.swift in Sources */,
 				00D884232400540B00DB1FDE /* ProcessingViewController.swift in Sources */,
 				B2A3B6AF2410AC03002A6F3F /* EssentiaWrapper.mm in Sources */,
-				B2B043972403040300795061 /* DetailViewController.swift in Sources */,
+				007C895F2449EB1B006E2856 /* DetailViewController.swift in Sources */,
 				AB74374C243CBC74009261A2 /* ItemStore.swift in Sources */,
 				007149D423FCC9780025E580 /* ListViewController.swift in Sources */,
 				B2A4AF5C2432E7B90023112A /* APIClient.swift in Sources */,
