@@ -39,5 +39,16 @@ extension Conversation {
 
     @objc(removeSegments:)
     @NSManaged public func removeFromSegments(_ values: NSSet)
+    
+    public func getSegments() -> [ConversationSegment]{
+        var ret:[ConversationSegment] = []
+        guard let sgmts = segments else {
+            return ret;
+        }
+        for segment in sgmts {
+            ret.append(segment as! ConversationSegment)
+        }
+        return ret
+    }
 
 }

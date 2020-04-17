@@ -12,15 +12,19 @@ import CoreData
 
 
 extension ConversationSegment {
-
+    
     @nonobjc public class func fetchRequest() -> NSFetchRequest<ConversationSegment> {
         return NSFetchRequest<ConversationSegment>(entityName: "ConversationSegment")
     }
-
+    
     @NSManaged public var duration: Int32
-    @NSManaged public var uuid: UUID?
+    @NSManaged public var uuid: UUID
     @NSManaged public var start_time: Int32
-    @NSManaged public var image: URL?
     @NSManaged public var conversation: Conversation?
-
+    
+    var image:URL {
+        let basePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        return basePath.appendingPathComponent("images").appendingPathComponent("\(uuid).png")
+    }
+    
 }

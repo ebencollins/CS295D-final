@@ -115,13 +115,14 @@ class ProcessingViewController: UIViewController {
         try FileManager.default.removeItem(at: self.recordingVC.getAudioFileURL())
     }
     
-    func saveImage(uuid: UUID, data: Data) throws -> URL {
+    @discardableResult func saveImage(uuid: UUID, data: Data) throws -> URL {
         let imagesDir = self.recordingVC.getURL().appendingPathComponent("images")
         // try? because dir may already exist
         try? FileManager.default.createDirectory(at: imagesDir, withIntermediateDirectories: false, attributes: nil)
         // raise if there's an error creating the file though
         let imagePath = imagesDir.appendingPathComponent("\(uuid).png")
         try data.write(to: imagePath)
+
         return imagePath.absoluteURL
     }
     
@@ -160,7 +161,7 @@ class ProcessingViewController: UIViewController {
             for (duration, segmentStart, imageData) in self.segments {
                 let segment = ConversationSegment(context: managedContext)
                 segment.uuid = UUID()
-                segment.image = try saveImage(uuid: segment.uuid!, data: imageData)
+                try saveImage(uuid: segment.uuid, data: imageData)
                 segment.duration = Int32(duration)
                 segment.start_time = Int32(segmentStart)
                 segment.conversation = conversation
