@@ -278,6 +278,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="51U-rl-pDH">
+                                <rect key="frame" x="67" y="420" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -311,6 +315,7 @@
                         <outlet property="cancelButton" destination="cUa-GD-GmD" id="mNc-WR-WTp"/>
                         <outlet property="dataCollectionSucessesful" destination="Fd1-ZX-tvX" id="avf-De-1vI"/>
                         <outlet property="imageView" destination="U1h-sJ-HHY" id="6BH-20-7lZ"/>
+                        <outlet property="imageView2" destination="51U-rl-pDH" id="1sg-o0-ogs"/>
                         <outlet property="sendButton" destination="Kjy-H9-hnN" id="Fxx-cn-TG3"/>
                         <outlet property="sendDataForResearch" destination="CPW-qW-oRh" id="N65-6x-kqH"/>
                         <outlet property="timeInterval" destination="9Ab-Mh-lZF" id="lac-YA-GDO"/>
