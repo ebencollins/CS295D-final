@@ -58,20 +58,20 @@ class ProcessingViewController: UIViewController {
                 self.duration = samples.count / file.fileFormat.sampleRate.toInt()
                 
                 // loop through mb96 data and programatically create image views of each segment
-                for n in 2...4 {
-                    // cast to 2d float array, log normalize, and transpose
-                    let dropAmount = ((data?.mb96.count)!)/n
-                    var mb96Segment = data?.mb96.dropLast(dropAmount) as! [[Float]]
-                    mb96Segment = mb96Segment.map({ $0.map{ log10($0) } }).transposed()
+                for n in 0...2 {
+                    // find random start & end int value for segment (within duration)
+                    let randStartInt = Int.random(in: 0 ..< mb96.count-1)
+                    let randEndInt = Int.random(in: randStartInt ..< mb96.count)
+                    let mb96Segment = mb96[randStartInt ..< randEndInt]
                     
-                    // calculate duration of segment
-                    let fps = (((data?.mb96.count)!)/self.duration!)
-                    let segmentDuration = (((data?.mb96.dropLast(dropAmount).count)!)/fps)
-                    print(segmentDuration)
+                    // calculate duration & start/end time of segment
+                    let startTime = randStartInt/self.duration!
+                    let endTime = randEndInt/self.duration!
+                    let segmentDuration = endTime-startTime
                     
                     // create heatmap
                     let renderer = AGGRenderer()
-                    var hm = Heatmap<[[Float]]>(mb96Segment);
+                    var hm = Heatmap<[[Float]]>(Array(mb96Segment));
                     hm.colorMap = ColorMap.viridis
                     hm.showGrid = false
                     hm.plotTitle = PlotTitle("Title")
@@ -89,7 +89,7 @@ class ProcessingViewController: UIViewController {
                     }
                     
                     // add to segments w/ proper duration and start
-                    self.segments.append((duration: 0, start: 0, imageData: imageData!))
+                    self.segments.append((duration: segmentDuration, start: startTime, imageData: imageData!))
                 }
                 
                 DispatchQueue.main.async {
