@@ -19,7 +19,6 @@ class ProcessingViewController: UIViewController {
     var segments:[(duration: Int, start:Int, imageData:Data)] = []
     
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var imageView2: UIImageView!
     @IBOutlet var dataCollectionSucessesful: UILabel!
     @IBOutlet var audioRecordingDeleted: UILabel!
     @IBOutlet var timeInterval: UILabel!
@@ -73,23 +72,40 @@ class ProcessingViewController: UIViewController {
                 self.duration = samples.count / file.fileFormat.sampleRate.toInt()
                 self.segments.append((duration: 0, start: 0, imageData: imageData!))
                 
-                // TESTING
-                // cast to 2d float array, log normalize, and transpose
-                let dropAmount = ((data?.mb96.count)!)/2
-                var mb962 = data?.mb96.dropLast(dropAmount) as! [[Float]]
-                mb962 = mb962.map({ $0.map{ log10($0) } }).transposed()
-                
-                // create heatmap
-                var hm2 = Heatmap<[[Float]]>(mb962);
-                hm2.colorMap = ColorMap.viridis
-                hm2.showGrid = false
-                hm2.plotTitle = PlotTitle("Title")
-                hm2.markerTextSize = 0
-                hm2.markerThickness = 0
-                hm2.drawGraph(size: Size(width: Float(CGFloat(1200)), height: Float(768)), renderer: renderer)
-                
-                let imageData2 = Data(base64Encoded: renderer.base64Png())
-                self.segments.append((duration: 0, start: 0, imageData: imageData2!))
+                // loop through mb96 data and programatically create image views of each segment
+                for n in 2...4 {
+                    // cast to 2d float array, log normalize, and transpose
+                    let dropAmount = ((data?.mb96.count)!)/n
+                    var mb96Segment = data?.mb96.dropLast(dropAmount) as! [[Float]]
+                    mb96Segment = mb96Segment.map({ $0.map{ log10($0) } }).transposed()
+                    
+                    // calculate duration of segment
+                    let fps = (((data?.mb96.count)!)/self.duration!)
+                    let segmentDuration = (((data?.mb96.dropLast(dropAmount).count)!)/fps)
+                    print(segmentDuration)
+                    
+                    // create heatmap of segment
+                    var segmentHm = Heatmap<[[Float]]>(mb96Segment);
+                    segmentHm.colorMap = ColorMap.viridis
+                    segmentHm.showGrid = false
+                    segmentHm.plotTitle = PlotTitle("Title")
+                    segmentHm.markerTextSize = 0
+                    segmentHm.markerThickness = 0
+                    segmentHm.drawGraph(size: Size(width: Float(CGFloat(1200)), height: Float(768)), renderer: renderer)
+                    
+                    // add UIImageView to view programatically
+                    let imageDataSegment = Data(base64Encoded: renderer.base64Png())
+                    
+                    // add image to view
+                    DispatchQueue.main.async {
+                        let imageViewToAppend = UIImageView(image: UIImage(data: imageDataSegment!))
+                        imageViewToAppend.frame = CGRect(x: 0, y: n*100, width: 200, height: 100)
+                        self.view.addSubview(imageViewToAppend)
+                    }
+                    
+                    // add to segments w/ proper duration and start
+                    self.segments.append((duration: 0, start: 0, imageData: imageDataSegment!))
+                }
                 
                 DispatchQueue.main.async {
                     // dismiss loading view
@@ -98,11 +114,6 @@ class ProcessingViewController: UIViewController {
                     let image = UIImage(data: imageData!)
                     self.imageView.image = image
                     self.imageView.contentMode = .scaleAspectFit
-                    
-                    // let image2 = UIImage(data: imageData!.prefix(through: imageData!.count/2))
-                    let image2 = UIImage(data: imageData2!)
-                    self.imageView2.image = image2
-                    self.imageView2.contentMode = .scaleAspectFit
 
                     // unhide everything
                     self.setHidden(false)
