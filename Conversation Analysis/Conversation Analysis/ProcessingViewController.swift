@@ -19,6 +19,7 @@ class ProcessingViewController: UIViewController {
     var segments:[(duration: Int, start:Int, imageData:Data)] = []
     
     @IBOutlet var dataCollectionSucessesful: UILabel!
+    @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var audioRecordingDeleted: UILabel!
     @IBOutlet var sendDataForResearch: UILabel!
     @IBOutlet var sendButton: UIButton!
@@ -77,8 +78,7 @@ class ProcessingViewController: UIViewController {
                     DispatchQueue.main.async {
                         let imageView = UIImageView(image: UIImage(data: imageData!))
                         imageView.frame = CGRect(x: 0, y: 0, width: 300, height: 150)
-                        imageView.center = self.view.center
-                        self.view.addSubview(imageView)
+                        self.scrollView.addSubview(imageView)
                     }
                     
                     // add to segments w/ proper duration and start
@@ -112,8 +112,9 @@ class ProcessingViewController: UIViewController {
                         // add image to view
                         DispatchQueue.main.async {
                             let imageView = UIImageView(image: UIImage(data: imageData!))
-                            imageView.frame = CGRect(x: 0, y: n*100, width: 200, height: 100)
-                            self.view.addSubview(imageView)
+                            imageView.frame = CGRect(x: 0, y: 150*n, width: 300, height: 150)
+                            imageView.center.x = self.scrollView.center.x
+                            self.scrollView.addSubview(imageView)
                         }
                         
                         // add to segments w/ proper duration and start
@@ -177,6 +178,7 @@ class ProcessingViewController: UIViewController {
             // hides objects
             dataCollectionSucessesful.isHidden = true
             audioRecordingDeleted.isHidden = true
+            scrollView.isHidden = true
             sendDataForResearch.isHidden = true
             sendButton.isHidden = true
             cancelButton.isHidden = true
@@ -184,6 +186,7 @@ class ProcessingViewController: UIViewController {
             // unhides objects
             dataCollectionSucessesful.isHidden = false
             audioRecordingDeleted.isHidden = false
+            scrollView.isHidden = false
             sendDataForResearch.isHidden = false
             sendButton.isHidden = false
             cancelButton.isHidden = false
