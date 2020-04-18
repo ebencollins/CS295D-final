@@ -87,7 +87,7 @@ class ProcessingViewController: UIViewController {
                     // loop through mb96 data and programatically create image views of each segment
                     for n in 0...2 {
                         // find random start int value that makes sure it's a 15 sec. clip
-                        let randStartFrame = Int.random(in: 0 ..< ((mb96.count))-(15 * fps))
+                        let randStartFrame = Int.random(in: 0 ..< (mb96.count)-(15 * fps))
                         let endFrame = randStartFrame + (15 * fps)
                         let mb96Segment = mb96[randStartFrame ..< endFrame]
                         
