@@ -81,7 +81,7 @@ class ProcessingViewController: UIViewController {
                         self.scrollView.addSubview(imageView)
                     }
                     
-                    // add to segments w/ proper duration and start
+                    // add to segments w/ proper duration and start (start will be 0 when <= 15 sec.)
                     self.segments.append((duration: self.duration!, start: 0, imageData: imageData!))
                 } else {
                     // loop through mb96 data and programatically create image views of each segment
