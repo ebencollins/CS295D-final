@@ -54,24 +54,16 @@ class ProcessingViewController: UIViewController {
                 var mb96 = data?.mb96 as! [[Float]]
                 mb96 = mb96.map({ $0.map{ log10($0) } }).transposed()
                 
+                // set date, duration and fps
                 self.date = Date()
                 self.duration = samples.count / file.fileFormat.sampleRate.toInt()
+                let fps = mb96.count/self.duration!
                 
-                // loop through mb96 data and programatically create image views of each segment
-                for n in 0...2 {
-                    // find random start & end int value for segment (within duration)
-                    let randStartInt = Int.random(in: 0 ..< mb96.count-1)
-                    let randEndInt = Int.random(in: randStartInt ..< mb96.count)
-                    let mb96Segment = mb96[randStartInt ..< randEndInt]
-                    
-                    // calculate duration & start/end time of segment
-                    let startTime = randStartInt/self.duration!
-                    let endTime = randEndInt/self.duration!
-                    let segmentDuration = endTime-startTime
-                    
+                // if duration is less than 20 sec. make one segment, otherwise make three random segments of 15 secs.
+                if(self.duration! <= 15) {
                     // create heatmap
                     let renderer = AGGRenderer()
-                    var hm = Heatmap<[[Float]]>(Array(mb96Segment));
+                    var hm = Heatmap<[[Float]]>(Array(mb96));
                     hm.colorMap = ColorMap.viridis
                     hm.showGrid = false
                     hm.plotTitle = PlotTitle("Title")
@@ -84,13 +76,51 @@ class ProcessingViewController: UIViewController {
                     // add image to view
                     DispatchQueue.main.async {
                         let imageView = UIImageView(image: UIImage(data: imageData!))
-                        imageView.frame = CGRect(x: 0, y: n*100, width: 200, height: 100)
+                        imageView.frame = CGRect(x: 0, y: 0, width: 300, height: 150)
+                        imageView.center = self.view.center
                         self.view.addSubview(imageView)
                     }
                     
                     // add to segments w/ proper duration and start
-                    self.segments.append((duration: segmentDuration, start: startTime, imageData: imageData!))
+                    self.segments.append((duration: self.duration!, start: 0, imageData: imageData!))
+                } else {
+                    // loop through mb96 data and programatically create image views of each segment
+                    for n in 0...2 {
+                        // find random start int value that makes sure it's a 15 sec. clip
+                        let randStartFrame = Int.random(in: 0 ..< ((mb96.count))-(15 * fps))
+                        let endFrame = randStartFrame + (15 * fps)
+                        let mb96Segment = mb96[randStartFrame ..< endFrame]
+                        
+                        // calculate duration & start/end time of segment
+                        let startTime = randStartFrame/fps
+                        let endTime = endFrame/fps
+                        let segmentDuration = endTime-startTime
+                        print(startTime, endTime, segmentDuration)
+                        
+                        // create heatmap
+                        let renderer = AGGRenderer()
+                        var hm = Heatmap<[[Float]]>(Array(mb96Segment));
+                        hm.colorMap = ColorMap.viridis
+                        hm.showGrid = false
+                        hm.plotTitle = PlotTitle("Title")
+                        hm.markerTextSize = 0
+                        hm.markerThickness = 0
+                        hm.drawGraph(size: Size(width: Float(CGFloat(1200)), height: Float(768)), renderer: renderer)
+                        
+                        let imageData = Data(base64Encoded: renderer.base64Png())
+                        
+                        // add image to view
+                        DispatchQueue.main.async {
+                            let imageView = UIImageView(image: UIImage(data: imageData!))
+                            imageView.frame = CGRect(x: 0, y: n*100, width: 200, height: 100)
+                            self.view.addSubview(imageView)
+                        }
+                        
+                        // add to segments w/ proper duration and start
+                        self.segments.append((duration: segmentDuration, start: startTime, imageData: imageData!))
+                    }
                 }
+                
                 
                 DispatchQueue.main.async {
                     // dismiss loading view
