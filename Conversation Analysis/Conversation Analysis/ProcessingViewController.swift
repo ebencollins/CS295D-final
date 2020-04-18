@@ -113,7 +113,6 @@ class ProcessingViewController: UIViewController {
                         DispatchQueue.main.async {
                             let imageView = UIImageView(image: UIImage(data: imageData!))
                             imageView.frame = CGRect(x: 0, y: 150*n, width: 300, height: 150)
-                            imageView.center.x = self.scrollView.center.x
                             self.scrollView.addSubview(imageView)
                         }
                         
@@ -178,7 +177,6 @@ class ProcessingViewController: UIViewController {
             // hides objects
             dataCollectionSucessesful.isHidden = true
             audioRecordingDeleted.isHidden = true
-            scrollView.isHidden = true
             sendDataForResearch.isHidden = true
             sendButton.isHidden = true
             cancelButton.isHidden = true
@@ -186,7 +184,6 @@ class ProcessingViewController: UIViewController {
             // unhides objects
             dataCollectionSucessesful.isHidden = false
             audioRecordingDeleted.isHidden = false
-            scrollView.isHidden = false
             sendDataForResearch.isHidden = false
             sendButton.isHidden = false
             cancelButton.isHidden = false
