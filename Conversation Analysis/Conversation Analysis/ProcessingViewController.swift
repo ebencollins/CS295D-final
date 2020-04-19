@@ -32,6 +32,8 @@ class ProcessingViewController: UIViewController {
         super.viewDidAppear(animated)
         // show alert
         self.showProcessingAlert()
+        // set scroll view content size 
+        scrollView.contentSize = self.view.frame.size
         // run in background
         DispatchQueue.global(qos: .userInitiated).async {
             do {
