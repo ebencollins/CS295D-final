@@ -151,7 +151,7 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
             let vc = segue.destination as! ProcessingViewController
             vc.recordingVC = self
         } else if (segue.identifier == "RecordingProcessedDetailViewSegue") {
-            let vc = segue.destination as! DetailViewController
+            let vc = segue.destination as! DetailGraphView
             if let conversation = self.lastConversation {
                 vc.conversation = conversation
             } else {

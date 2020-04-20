@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2PF-Ih-el7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2PF-Ih-el7">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -77,7 +77,7 @@
                         <outlet property="logoImage" destination="XEO-7t-KGl" id="iwl-9F-k7q"/>
                         <outlet property="timerLabel" destination="R00-X4-5d7" id="tUQ-8d-nr0"/>
                         <segue destination="Jpf-2B-sZi" kind="presentation" identifier="DataProcessingSegue" modalPresentationStyle="fullScreen" id="baO-lf-ZBo"/>
-                        <segue destination="DWJ-Q6-5Sv" kind="show" identifier="RecordingProcessedDetailViewSegue" id="ODM-xW-1KZ"/>
+                        <segue destination="p0Z-FZ-yUD" kind="show" identifier="RecordingProcessedDetailViewSegue" id="qmG-Hy-u35"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ih3-e3-YCI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -124,10 +124,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fVU-92-sUO">
-                                                    <rect key="frame" x="15" y="13" width="0.0" height="143"/>
+                                                    <rect key="frame" x="15" y="13" width="178" height="143"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="timestamp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zOc-iM-qVn">
-                                                    <rect key="frame" x="-46" y="74.5" width="0.0" height="20"/>
+                                                    <rect key="frame" x="248" y="74.5" width="81" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -171,57 +171,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CPu-JD-V97" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="286.50674662668666"/>
-        </scene>
-        <!--Detail View-->
-        <scene sceneID="yRF-TG-jeD">
-            <objects>
-                <viewController title="Detail View" id="DWJ-Q6-5Sv" customClass="DetailViewController" customModule="Conversation_Analysis" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Wr6-sL-yQh">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Ve-TZ-KzE">
-                                <rect key="frame" x="0.0" y="94" width="375" height="310"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Interval" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nn6-gl-0tT">
-                                <rect key="frame" x="0.0" y="412" width="375" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UUID" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ruT-5W-SYu">
-                                <rect key="frame" x="0.0" y="626" width="375" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="5Ve-TZ-KzE" firstAttribute="trailing" secondItem="l0o-d7-Hm8" secondAttribute="trailing" id="0ln-w5-tfJ"/>
-                            <constraint firstItem="ruT-5W-SYu" firstAttribute="trailing" secondItem="l0o-d7-Hm8" secondAttribute="trailing" id="2dy-4c-tJu"/>
-                            <constraint firstItem="5Ve-TZ-KzE" firstAttribute="leading" secondItem="l0o-d7-Hm8" secondAttribute="leading" id="3xW-Bl-V6d"/>
-                            <constraint firstItem="ruT-5W-SYu" firstAttribute="leading" secondItem="l0o-d7-Hm8" secondAttribute="leading" id="5XZ-8w-EKf"/>
-                            <constraint firstItem="ruT-5W-SYu" firstAttribute="bottom" secondItem="l0o-d7-Hm8" secondAttribute="bottom" id="76B-vC-4Al"/>
-                            <constraint firstItem="nn6-gl-0tT" firstAttribute="trailing" secondItem="l0o-d7-Hm8" secondAttribute="trailing" id="AIl-SY-d0M"/>
-                            <constraint firstItem="l0o-d7-Hm8" firstAttribute="bottom" secondItem="5Ve-TZ-KzE" secondAttribute="bottom" constant="243" id="GjW-MG-KVD"/>
-                            <constraint firstItem="5Ve-TZ-KzE" firstAttribute="top" secondItem="l0o-d7-Hm8" secondAttribute="top" constant="94" id="HyD-nR-GM4"/>
-                            <constraint firstItem="nn6-gl-0tT" firstAttribute="leading" secondItem="l0o-d7-Hm8" secondAttribute="leading" id="LwQ-WH-cT2"/>
-                            <constraint firstItem="nn6-gl-0tT" firstAttribute="top" secondItem="5Ve-TZ-KzE" secondAttribute="bottom" constant="8" id="cpY-Z9-6pX"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="l0o-d7-Hm8"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="86d-Gv-omM"/>
-                    <navigationItem key="navigationItem" id="g1r-hB-yQV"/>
-                    <connections>
-                        <outlet property="id" destination="ruT-5W-SYu" id="8J0-Po-2Cl"/>
-                        <outlet property="imageView" destination="5Ve-TZ-KzE" id="KiJ-pB-mc9"/>
-                        <outlet property="timeInterval" destination="nn6-gl-0tT" id="IrY-MZ-XCV"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NIl-4S-n3U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1132" y="-914"/>
         </scene>
         <!--Processing-->
         <scene sceneID="hKH-0S-9lo">
@@ -311,7 +260,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HLq-Ns-I1Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1132" y="-151.57421289355324"/>
+            <point key="canvasLocation" x="1132" y="-475"/>
         </scene>
         <!--Back -->
         <scene sceneID="iYY-Bz-Wgk">
@@ -352,11 +301,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V9N-7W-FiR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1132" y="626.53673163418296"/>
+            <point key="canvasLocation" x="1132" y="287"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="qmG-Hy-u35"/>
+    </inferredMetricsTieBreakers>
     <resources>
-        <image name="list.bullet" catalog="system" width="64" height="44"/>
-        <image name="mic.fill" catalog="system" width="54" height="64"/>
+        <image name="list.bullet" catalog="system" width="128" height="88"/>
+        <image name="mic.fill" catalog="system" width="108" height="128"/>
     </resources>
 </document>
