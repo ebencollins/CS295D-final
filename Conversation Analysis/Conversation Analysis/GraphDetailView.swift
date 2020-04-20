@@ -1,12 +1,13 @@
 import UIKit
 import CoreData
+import NotificationBannerSwift
 
 class DetailGraphView: UIViewController{
     @IBOutlet var contentView: UIView!
     @IBOutlet var name: UILabel!
     
     var conversation: Conversation!
-
+    
     override func viewWillAppear(_ animated: Bool) { super.viewWillAppear(animated)
         // set name of conversation
         name.text = "\(conversation.hashValue)"
@@ -26,20 +27,35 @@ class DetailGraphView: UIViewController{
         }
         
         // place holder for graphs
-//        let segments = conversation.getSegments()
-//        if let segment = segments.first {
-//            // Configure Cell
-//            DispatchQueue.global().async{
-//                if let data = try? Data(contentsOf: segment.image){
-//                    if let image = UIImage(data: data){
-//                        DispatchQueue.main.async{
-//                            self.imageView.image = image
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "< Back", style: .plain, target: self, action: #selector(backAction))
-//
+        //        let segments = conversation.getSegments()
+        //        if let segment = segments.first {
+        //            // Configure Cell
+        //            DispatchQueue.global().async{
+        //                if let data = try? Data(contentsOf: segment.image){
+        //                    if let image = UIImage(data: data){
+        //                        DispatchQueue.main.async{
+        //                            self.imageView.image = image
+        //                        }
+        //                    }
+        //                }
+        //            }
+        //        }
+        //        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "< Back", style: .plain, target: self, action: #selector(backAction))
+        //
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        if !conversation.uploaded {
+            ConversationsAPIClient.upload(conversation: conversation, completion: {result,message  in
+                var banner: NotificationBanner
+                if result{
+                    banner = NotificationBanner(title: "Upload complete", subtitle: message, style: .success)
+                }else{
+                    banner = NotificationBanner(title: "Upload failed", subtitle: message, style: .danger)
+                }
+                banner.show()
+            })
+        }
     }
 }

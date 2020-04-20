@@ -5,7 +5,6 @@
 //  Created by Eben Collins on 2020-3-30.
 //  Copyright © 2020 conversation-analysis. All rights reserved.
 //
-
 import UIKit
 import Alamofire
 import CoreData
@@ -20,7 +19,7 @@ class ConversationsAPIClient {
     }
     
     // this function will register the device if it has not yet been registered
-    static func registerDevice(){
+    static func registerDevice(completion: @escaping (_ result: Bool) -> ()){
         // don't re-register
         if let uuid = ConversationsAPIClient.getDeviceUUID() {
             return;
@@ -35,14 +34,16 @@ class ConversationsAPIClient {
                     // save if successful
                     let defaults = UserDefaults.standard
                     defaults.set(uuid, forKey: DEVICE_UUID_KEY)
+                    completion(true)
                     print("Device registered successfully: \(getDeviceUUID())")
                 case .failure(let error):
+                    completion(false)
                     print("Error registering device: \(error)")
                 }
         }
     }
     
-    static func upload(conversation: Conversation){
+    static func upload(conversation: Conversation, completion: @escaping (_ result: Bool, _ message:String) -> ()){
         // cont try to reupload
         if conversation.uploaded {
             return;
@@ -61,24 +62,27 @@ class ConversationsAPIClient {
                 case .success:
                     uploadSegments(conversation: conversation, completion: {result in
                         if result {
-                            print("Successfully uploaded all segments")
+                            completion(true, "All extracted segments have been successfully uploaded")
                             conversation.uploaded = true
                             let managedContext = (UIApplication.shared.delegate as? AppDelegate)!.persistentContainer.viewContext
                             try? managedContext.save()
                         } else {
-                            print("Upload failed on one or more segments")
+                            completion(false, "One or more segments failed to upload")
                         }
                     });
                 case .failure(let error):
+                    completion(false, "An error occured while uploading this conversation")
                     print("Error uploading conversation: \(error)")
                 }
         }
     }
     
-    static func uploadSegments(conversation: Conversation, completion:(_ result: Bool)->()) {
-
-        var result = false;
+    static func uploadSegments(conversation: Conversation, completion: @escaping (_ result: Bool)->()) {
+        
+        var result = true
+        let group = DispatchGroup()
         for segment in conversation.segments as! Set<ConversationSegment> {
+            group.enter()
             let parameters:[String:String] = [
                 "uuid": segment.uuid.uuidString,
                 "conversation": conversation.uuid!.uuidString,
@@ -97,14 +101,17 @@ class ConversationsAPIClient {
                 .responseJSON { response in
                     switch(response.result) {
                     case .success:
-                        result = true
+                        break
                     case .failure(let error):
                         result = false
                         print("Error uploading conversation segment: \(error)")
                     }
+                    group.leave()
             }
-            completion(result)
         }
+        group.notify(queue: .main) {
+                completion(result)
+            }
     }
     
     static func getDeviceUUID() -> String? {

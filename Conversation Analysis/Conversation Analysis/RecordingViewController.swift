@@ -9,9 +9,11 @@
 import UIKit
 import AVFoundation
 import CoreData
+import NotificationBannerSwift
 
 class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
     let AUDIO_FILENAME = "recording.wav"
+    let MIN_RECORDING_LENGTH = 20.0
     
     var recorder : AVAudioRecorder!
     var playSound : AVAudioPlayer!
@@ -21,6 +23,7 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
     var timer = Timer()
     var isRecording = false
     var counter = 0.0
+    
     
     var processingViewResult:ProcessingViewResult?
     var lastConversation:Conversation?
@@ -62,12 +65,19 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
             
             timer.invalidate()
             
+            //process
+            if counter >= MIN_RECORDING_LENGTH {
+                self.performSegue(withIdentifier: "DataProcessingSegue", sender: nil)
+            } else{
+                try? FileManager.default.removeItem(at: getAudioFileURL());
+                let banner = NotificationBanner(title: "Discarded", subtitle: "Recording has been discarded successfully.", style: .success)
+                banner.show()
+            }
+            
             // reset timer back to 00:00
             counter = 0.0
             timerLabel.text = "00:00"
             
-            // process
-            self.performSegue(withIdentifier: "DataProcessingSegue", sender: nil)
         }
     }
     
@@ -126,8 +136,10 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
         }
         
         // register device with API of not already registered
-        print("register")
-        ConversationsAPIClient.registerDevice()
+        ConversationsAPIClient.registerDevice(completion: {result in
+              let banner = NotificationBanner(title: "Device registered", subtitle: "This device has been successfully registered with the remote server", style: .success)
+              banner.show()
+          })
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -139,6 +151,8 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
             case .OK_DELETED:
                 // display toast
                 showToast(message: "Deleted")
+                let banner = NotificationBanner(title: "Discarded", subtitle: "Recording has been discarded successfully.", style: .success)
+                banner.show()
             case .ERROR:
                 showErrorAlert()
             }

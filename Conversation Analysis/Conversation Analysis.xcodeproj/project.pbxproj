@@ -39,6 +39,7 @@
 		B2BD158A24270433000167EA /* Conversation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BD158624270433000167EA /* Conversation+CoreDataClass.swift */; };
 		B2BD158B24270433000167EA /* Conversation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BD158724270433000167EA /* Conversation+CoreDataProperties.swift */; };
 		B2BDF552242306AC00AC3183 /* Sequence+transposed.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BDF551242306AC00AC3183 /* Sequence+transposed.swift */; };
+		B2C35BAB244E4202006DB0FB /* NotificationBannerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B2C35BAA244E4202006DB0FB /* NotificationBannerSwift */; };
 		B2E954EA240C97FC00994F2A /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2E954E9240C97FC00994F2A /* Accelerate.framework */; };
 /* End PBXBuildFile section */
 
@@ -110,6 +111,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2A892D9241582E9009558B4 /* QuartzRenderer in Frameworks */,
+				B2C35BAB244E4202006DB0FB /* NotificationBannerSwift in Frameworks */,
 				B2A4AF5F2432E97F0023112A /* Alamofire in Frameworks */,
 				B2A892DF241582E9009558B4 /* AGGRenderer in Frameworks */,
 				B2A892DD241582E9009558B4 /* SwiftPlot in Frameworks */,
@@ -162,11 +164,6 @@
 		B26A806723F30879009DD7D8 /* Conversation Analysis */ = {
 			isa = PBXGroup;
 			children = (
-				AB7337E8243CD0AF0036D539 /* GraphDetailView.swift */,
-				AB743748243CBC74009261A2 /* Item.swift */,
-				AB743749243CBC74009261A2 /* ItemStore.swift */,
-				AB743747243CBC73009261A2 /* ItemsViewController.swift */,
-				AB7337EE243F92770036D539 /* CoreDataManager.swift */,
 				B2A4AF5A2432E3760023112A /* Data */,
 				B2BD15482426EE03000167EA /* Resources */,
 				B2BDF5502423068500AC3183 /* Extensions */,
@@ -177,6 +174,11 @@
 				00D884222400540B00DB1FDE /* ProcessingViewController.swift */,
 				007149D123FCC77D0025E580 /* RecordingViewController.swift */,
 				007149D323FCC9780025E580 /* ListViewController.swift */,
+				AB7337E8243CD0AF0036D539 /* GraphDetailView.swift */,
+				AB743748243CBC74009261A2 /* Item.swift */,
+				AB743749243CBC74009261A2 /* ItemStore.swift */,
+				AB743747243CBC73009261A2 /* ItemsViewController.swift */,
+				AB7337EE243F92770036D539 /* CoreDataManager.swift */,
 				B26A807123F3087C009DD7D8 /* Assets.xcassets */,
 				B26A807323F3087C009DD7D8 /* LaunchScreen.storyboard */,
 				B26A807623F3087C009DD7D8 /* Info.plist */,
@@ -270,6 +272,7 @@
 				B2A892DC241582E9009558B4 /* SwiftPlot */,
 				B2A892DE241582E9009558B4 /* AGGRenderer */,
 				B2A4AF5E2432E97F0023112A /* Alamofire */,
+				B2C35BAA244E4202006DB0FB /* NotificationBannerSwift */,
 			);
 			productName = "Conversation Analysis";
 			productReference = B26A806523F30879009DD7D8 /* Conversation Analysis.app */;
@@ -347,6 +350,7 @@
 			packageReferences = (
 				B2A892D7241582E9009558B4 /* XCRemoteSwiftPackageReference "swiftplot" */,
 				B2A4AF5D2432E97F0023112A /* XCRemoteSwiftPackageReference "Alamofire" */,
+				B2C35BA9244E4202006DB0FB /* XCRemoteSwiftPackageReference "NotificationBanner" */,
 			);
 			productRefGroup = B26A806623F30879009DD7D8 /* Products */;
 			projectDirPath = "";
@@ -787,6 +791,14 @@
 				kind = branch;
 			};
 		};
+		B2C35BA9244E4202006DB0FB /* XCRemoteSwiftPackageReference "NotificationBanner" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:Daltron/NotificationBanner.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -814,6 +826,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B2A892D7241582E9009558B4 /* XCRemoteSwiftPackageReference "swiftplot" */;
 			productName = AGGRenderer;
+		};
+		B2C35BAA244E4202006DB0FB /* NotificationBannerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B2C35BA9244E4202006DB0FB /* XCRemoteSwiftPackageReference "NotificationBanner" */;
+			productName = NotificationBannerSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 
