@@ -20,12 +20,18 @@ class DetailGraphView: UIViewController {
             // get the segments image data
             let imageData = (try? Data(contentsOf: segment.image))!
             DispatchQueue.main.async {
-                // create image view w/ imageData
+                // create image view with imageData
                 let imageView = UIImageView(image: UIImage(data: imageData))
                 imageView.frame = CGRect(x: 0, y: y, width: 300, height: 150)
                 
-                // add image to ui view
+                // create label with segment's time interval
+                let interval = UILabel(frame: CGRect(x: 0, y: y, width: 300, height: 20))
+                interval.textAlignment = NSTextAlignment.center
+                interval.text = "\(segment.start_time) - \(segment.start_time + 15) sec."
+                
+                // add image and label to ui view
                 self.contentView.addSubview(imageView)
+                self.contentView.addSubview(interval)
                 
                 // increment y value
                 y += 150

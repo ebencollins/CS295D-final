@@ -73,7 +73,6 @@ class ProcessingViewController: UIViewController {
                     let startTime = randStartFrame/fps
                     let endTime = endFrame/fps
                     let segmentDuration = endTime-startTime
-                    print(startTime, endTime, segmentDuration)
                     
                     // create heatmap
                     let renderer = AGGRenderer()
@@ -89,9 +88,18 @@ class ProcessingViewController: UIViewController {
                     
                     // add image to view
                     DispatchQueue.main.async {
+                        // create image view with image data
                         let imageView = UIImageView(image: UIImage(data: imageData!))
                         imageView.frame = CGRect(x: 0, y: 150*n, width: 300, height: 150)
+                        
+                        // create label with segment's time interval
+                        let interval = UILabel(frame: CGRect(x: 0, y: 150*n, width: 300, height: 20))
+                        interval.textAlignment = NSTextAlignment.center
+                        interval.text = "\(startTime) - \(endTime) sec."
+                        
+                        // add image and label to ui view
                         self.scrollView.addSubview(imageView)
+                        self.scrollView.addSubview(interval)
                     }
                     
                     // add to segments w/ proper duration and start
