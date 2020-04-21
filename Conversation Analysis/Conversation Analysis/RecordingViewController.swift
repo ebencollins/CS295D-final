@@ -51,7 +51,7 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
                 recorder = try AVAudioRecorder(url: getAudioFileURL(), settings: settings)
                 recorder.delegate = self
                 recorder.record()
-                button.setTitle("Stop Recording?", for: .normal)
+                button.setBackgroundImage(UIImage(systemName: "stop.circle"), for: .normal)
                 
             } catch {
                 showErrorAlert()
@@ -60,7 +60,7 @@ class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
         } else {
             //stop recording
             recorder.stop()
-            button.setTitle("", for: .normal)
+            button.setBackgroundImage(UIImage(systemName: "mic.fill"), for: .normal)
             recorder = nil
             
             timer.invalidate()
