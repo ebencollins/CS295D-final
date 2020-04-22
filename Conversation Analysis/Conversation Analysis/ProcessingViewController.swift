@@ -55,7 +55,7 @@ class ProcessingViewController: UIViewController {
                 
                 // cast to 2d float array, log normalize, and transpose
                 var mb96 = data?.mb96 as! [[Float]]
-                mb96 = mb96.map({ $0.map{ log10($0) } }).transposed()
+                mb96 = mb96.map({ $0.map{ log10($0) } })
                 
                 // set date, duration and fps
                 self.date = Date()
@@ -67,7 +67,7 @@ class ProcessingViewController: UIViewController {
                     // find random start int value that makes sure it's a 15 sec. clip
                     let randStartFrame = Int.random(in: 0 ..< (mb96.count)-(15 * fps))
                     let endFrame = randStartFrame + (15 * fps)
-                    let mb96Segment = mb96[randStartFrame ..< endFrame]
+                    let mb96Segment = mb96[randStartFrame ..< endFrame].transposed()
                     
                     // calculate duration & start/end time of segment
                     let startTime = randStartFrame/fps

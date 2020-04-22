@@ -5,6 +5,7 @@ import NotificationBannerSwift
 class DetailGraphView: UIViewController {
     @IBOutlet var contentView: UIView!
     @IBOutlet var name: UILabel!
+    @IBOutlet weak var uploadedStateIcon: UIImageView!
     
     var conversation: Conversation!
     
@@ -37,6 +38,10 @@ class DetailGraphView: UIViewController {
                 y += 150
             }
         }
+        if !conversation.uploaded {
+            uploadedStateIcon.image = UIImage(systemName: "icloud.slash")
+            uploadedStateIcon.tintColor = UIColor.red
+        }
     }
     
     override func viewDidLoad() {
@@ -46,8 +51,12 @@ class DetailGraphView: UIViewController {
                 var banner: NotificationBanner
                 if result{
                     banner = NotificationBanner(title: "Upload complete", subtitle: message, style: .success)
+                    self.uploadedStateIcon.image = UIImage(systemName: "icloud")
+                    self.uploadedStateIcon.tintColor = UIColor.green
                 }else{
                     banner = NotificationBanner(title: "Upload failed", subtitle: message, style: .danger)
+                    self.uploadedStateIcon.image = UIImage(systemName: "icloud.slash")
+                    self.uploadedStateIcon.tintColor = UIColor.red
                 }
                 banner.show()
             })
