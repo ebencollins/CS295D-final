@@ -13,7 +13,7 @@ class DetailGraphView: UIViewController {
         super.viewWillAppear(animated)
         
         // set name of conversation
-        name.text = "\(conversation.hashValue)"
+        name.text = conversation.uuid?.uuidString
         
         // iterate through all segments and append to scroll view
         var y = 0

@@ -125,35 +125,41 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fVU-92-sUO">
                                                     <rect key="frame" x="15" y="13" width="178" height="143"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="fVU-92-sUO" secondAttribute="height" multiplier="178:143" id="aUN-9Z-qnt"/>
+                                                    </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="timestamp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zOc-iM-qVn">
-                                                    <rect key="frame" x="248" y="74.5" width="81" height="20"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="graph" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Fd-b6-Ces">
-                                                    <rect key="frame" x="82" y="0.0" width="45" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="6Wz-mo-KlN">
+                                                    <rect key="frame" x="263" y="21" width="81" height="127"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hwd-v9-Z1t">
+                                                            <rect key="frame" x="0.0" y="0.0" width="42" height="63.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="timestamp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zOc-iM-qVn">
+                                                            <rect key="frame" x="0.0" y="63.5" width="81" height="63.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="zOc-iM-qVn" secondAttribute="trailing" constant="31" id="RXy-hK-QEv"/>
-                                                <constraint firstItem="fVU-92-sUO" firstAttribute="centerY" secondItem="zOc-iM-qVn" secondAttribute="centerY" id="Rv4-NF-sDA"/>
-                                                <constraint firstItem="fVU-92-sUO" firstAttribute="leading" secondItem="2x2-sw-7at" secondAttribute="leadingMargin" id="Te0-bY-4EI"/>
-                                                <constraint firstItem="fVU-92-sUO" firstAttribute="centerY" secondItem="2x2-sw-7at" secondAttribute="centerY" id="Thf-iX-Uc6"/>
-                                                <constraint firstItem="zOc-iM-qVn" firstAttribute="leading" secondItem="fVU-92-sUO" secondAttribute="trailing" constant="55" id="U3Y-hT-9Dz"/>
-                                                <constraint firstItem="fVU-92-sUO" firstAttribute="top" secondItem="2x2-sw-7at" secondAttribute="topMargin" constant="2" id="Zrp-pV-NOa"/>
-                                                <constraint firstItem="8Fd-b6-Ces" firstAttribute="leading" secondItem="2x2-sw-7at" secondAttribute="leadingMargin" constant="67" id="bEW-IX-bzd"/>
-                                                <constraint firstItem="8Fd-b6-Ces" firstAttribute="top" secondItem="2x2-sw-7at" secondAttribute="topMargin" constant="-11" id="yME-vc-HwN"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="6Wz-mo-KlN" secondAttribute="bottom" constant="10" id="N30-3o-PKz"/>
+                                                <constraint firstItem="fVU-92-sUO" firstAttribute="leading" secondItem="2x2-sw-7at" secondAttribute="leadingMargin" id="PGT-IZ-EV8"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="6Wz-mo-KlN" secondAttribute="trailing" constant="16" id="Uvy-C1-F4d"/>
+                                                <constraint firstItem="6Wz-mo-KlN" firstAttribute="top" secondItem="2x2-sw-7at" secondAttribute="topMargin" constant="10" id="hSX-fA-wrJ"/>
+                                                <constraint firstItem="fVU-92-sUO" firstAttribute="top" secondItem="2x2-sw-7at" secondAttribute="topMargin" constant="2" id="tDK-Ul-Qbc"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="fVU-92-sUO" secondAttribute="bottom" constant="2" id="xpD-0B-2VZ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="ImageView" destination="fVU-92-sUO" id="UTb-V7-WGO"/>
+                                            <outlet property="date" destination="Hwd-v9-Z1t" id="Fci-Vw-osA"/>
                                             <outlet property="duration" destination="zOc-iM-qVn" id="Vex-p3-Nic"/>
-                                            <outlet property="graphName" destination="8Fd-b6-Ces" id="N9i-qe-7hP"/>
                                             <segue destination="p0Z-FZ-yUD" kind="show" identifier="Detail Graph" id="hNJ-co-Wfv"/>
                                         </connections>
                                     </tableViewCell>
@@ -321,7 +327,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="qmG-Hy-u35"/>
+        <segue reference="hNJ-co-Wfv"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="icloud" catalog="system" width="128" height="88"/>

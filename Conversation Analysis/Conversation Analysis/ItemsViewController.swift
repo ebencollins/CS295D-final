@@ -93,8 +93,9 @@ extension ItemsViewController: UITableViewDataSource,UITableViewDelegate {
         
         // Fetch Quote
         let conversation = fetchedResultsController.object(at: indexPath)
-        cell.duration.text = "Duration: \(conversation.duration)"
-        cell.graphName.text = "\(conversation.hashValue)"
+        cell.duration.text = "Duration: \(conversation.duration)s"
+        let dateStr = conversation.date?.format("yyyy-MM-dd")
+        cell.date.text = "Date: " + dateStr!
         let segments = conversation.getSegments()
         if let segment = segments.first {
             // Configure Cell
@@ -163,8 +164,8 @@ class GraphCell:UITableViewCell{
     static let reuseIdentifier = "GraphCell"
     
     @IBOutlet var ImageView: UIImageView!
-    @IBOutlet var graphName: UILabel!
     @IBOutlet var duration: UILabel!
+    @IBOutlet weak var date: UILabel!
     
     
     override func awakeFromNib(){
