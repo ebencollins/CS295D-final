@@ -8,15 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		007149D223FCC77D0025E580 /* RecordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007149D123FCC77D0025E580 /* RecordingViewController.swift */; };
-		007149D423FCC9780025E580 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007149D323FCC9780025E580 /* ListViewController.swift */; };
 		00D884232400540B00DB1FDE /* ProcessingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D884222400540B00DB1FDE /* ProcessingViewController.swift */; };
 		AB7337E9243CD0B00036D539 /* GraphDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7337E8243CD0AF0036D539 /* GraphDetailView.swift */; };
 		AB7337EB243CD4A50036D539 /* libs in Resources */ = {isa = PBXBuildFile; fileRef = AB7337EA243CD4A50036D539 /* libs */; };
-		AB7337ED243D21D20036D539 /* tableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7337EC243D21D20036D539 /* tableDataSource.swift */; };
-		AB7337EF243F92770036D539 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7337EE243F92770036D539 /* CoreDataManager.swift */; };
 		AB74374A243CBC74009261A2 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB743747243CBC73009261A2 /* ItemsViewController.swift */; };
-		AB74374B243CBC74009261A2 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB743748243CBC74009261A2 /* Item.swift */; };
-		AB74374C243CBC74009261A2 /* ItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB743749243CBC74009261A2 /* ItemStore.swift */; };
 		B26A806923F30879009DD7D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26A806823F30879009DD7D8 /* AppDelegate.swift */; };
 		B26A806B23F30879009DD7D8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26A806A23F30879009DD7D8 /* SceneDelegate.swift */; };
 		B26A807023F30879009DD7D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B26A806E23F30879009DD7D8 /* Main.storyboard */; };
@@ -62,16 +57,11 @@
 
 /* Begin PBXFileReference section */
 		007149D123FCC77D0025E580 /* RecordingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingViewController.swift; sourceTree = "<group>"; };
-		007149D323FCC9780025E580 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		00D884222400540B00DB1FDE /* ProcessingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingViewController.swift; sourceTree = "<group>"; };
 		AB7337E8243CD0AF0036D539 /* GraphDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphDetailView.swift; sourceTree = "<group>"; };
 		AB7337EA243CD4A50036D539 /* libs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = libs; sourceTree = "<group>"; };
-		AB7337EC243D21D20036D539 /* tableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tableDataSource.swift; sourceTree = "<group>"; };
-		AB7337EE243F92770036D539 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		AB743745243CB8CA009261A2 /* libs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = libs; sourceTree = "<group>"; };
 		AB743747243CBC73009261A2 /* ItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
-		AB743748243CBC74009261A2 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
-		AB743749243CBC74009261A2 /* ItemStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemStore.swift; sourceTree = "<group>"; };
 		B26A806523F30879009DD7D8 /* Conversation Analysis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Conversation Analysis.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B26A806823F30879009DD7D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B26A806A23F30879009DD7D8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -167,25 +157,20 @@
 				B2A4AF5A2432E3760023112A /* Data */,
 				B2BD15482426EE03000167EA /* Resources */,
 				B2BDF5502423068500AC3183 /* Extensions */,
-				B26A806823F30879009DD7D8 /* AppDelegate.swift */,
-				AB7337EC243D21D20036D539 /* tableDataSource.swift */,
-				B26A806A23F30879009DD7D8 /* SceneDelegate.swift */,
-				B26A806E23F30879009DD7D8 /* Main.storyboard */,
-				00D884222400540B00DB1FDE /* ProcessingViewController.swift */,
-				007149D123FCC77D0025E580 /* RecordingViewController.swift */,
-				007149D323FCC9780025E580 /* ListViewController.swift */,
-				AB7337E8243CD0AF0036D539 /* GraphDetailView.swift */,
-				AB743748243CBC74009261A2 /* Item.swift */,
-				AB743749243CBC74009261A2 /* ItemStore.swift */,
-				AB743747243CBC73009261A2 /* ItemsViewController.swift */,
-				AB7337EE243F92770036D539 /* CoreDataManager.swift */,
 				B26A807123F3087C009DD7D8 /* Assets.xcassets */,
 				B26A807323F3087C009DD7D8 /* LaunchScreen.storyboard */,
+				B26A806E23F30879009DD7D8 /* Main.storyboard */,
 				B26A807623F3087C009DD7D8 /* Info.plist */,
+				B26A806823F30879009DD7D8 /* AppDelegate.swift */,
+				B26A806A23F30879009DD7D8 /* SceneDelegate.swift */,
+				007149D123FCC77D0025E580 /* RecordingViewController.swift */,
+				00D884222400540B00DB1FDE /* ProcessingViewController.swift */,
+				AB743747243CBC73009261A2 /* ItemsViewController.swift */,
+				AB7337E8243CD0AF0036D539 /* GraphDetailView.swift */,
+				B2A4AF5B2432E7B90023112A /* APIClient.swift */,
 				B2B043982403049000795061 /* Conversation Analysis-Bridging-Header.h */,
 				B2A3B6AD2410AC03002A6F3F /* EssentiaWrapper.h */,
 				B2A3B6AE2410AC03002A6F3F /* EssentiaWrapper.mm */,
-				B2A4AF5B2432E7B90023112A /* APIClient.swift */,
 			);
 			path = "Conversation Analysis";
 			sourceTree = "<group>";
@@ -402,12 +387,8 @@
 				B26A806923F30879009DD7D8 /* AppDelegate.swift in Sources */,
 				00D884232400540B00DB1FDE /* ProcessingViewController.swift in Sources */,
 				B2A3B6AF2410AC03002A6F3F /* EssentiaWrapper.mm in Sources */,
-				AB74374C243CBC74009261A2 /* ItemStore.swift in Sources */,
-				007149D423FCC9780025E580 /* ListViewController.swift in Sources */,
 				B2A4AF5C2432E7B90023112A /* APIClient.swift in Sources */,
 				B2BD158B24270433000167EA /* Conversation+CoreDataProperties.swift in Sources */,
-				AB74374B243CBC74009261A2 /* Item.swift in Sources */,
-				AB7337EF243F92770036D539 /* CoreDataManager.swift in Sources */,
 				B2BD154B2426EEE0000167EA /* ConversationAnalysis.xcdatamodeld in Sources */,
 				B26A806B23F30879009DD7D8 /* SceneDelegate.swift in Sources */,
 				B2A4AF612435B9E20023112A /* Date+isoformat.swift in Sources */,
@@ -415,7 +396,6 @@
 				AB7337E9243CD0B00036D539 /* GraphDetailView.swift in Sources */,
 				B2BD158824270433000167EA /* ConversationSegment+CoreDataClass.swift in Sources */,
 				B2BDF552242306AC00AC3183 /* Sequence+transposed.swift in Sources */,
-				AB7337ED243D21D20036D539 /* tableDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

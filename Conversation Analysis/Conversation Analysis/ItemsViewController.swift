@@ -15,7 +15,6 @@ import CoreData
 
 class ItemsViewController: UIViewController, NSFetchedResultsControllerDelegate{
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    var itemStore: ItemStore!
     var segments:[(duration: Int, start:Int, imageData:Data)] = []
     var conversations: [NSManagedObjectModel]=[]
     
