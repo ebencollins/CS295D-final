@@ -183,6 +183,7 @@ class ProcessingViewController: UIViewController {
             let conversation = Conversation(context: managedContext)
             conversation.date = self.date
             conversation.uuid = UUID()
+            conversation.duration = Int32(duration!)
             
             for (duration, segmentStart, imageData) in self.segments {
                 let segment = ConversationSegment(context: managedContext)
