@@ -20,6 +20,8 @@ Essentia can be compiled for the simulator with the following (more info [here](
 ./waf
 ./waf install
 ```
+Note: When compiling for a physical iOS device, the line in nnlschroma.cpp containing `nnls(curr_dict, nNote, nNote, signifIndex.size(), b, x, &rnorm, w, zz, indx, &mode);` must be commented out for successful iOS build ([issue](https://github.com/MTG/essentia/issues/916))
+
 Eigen's headers can be simply symlinked or coped from [the repository](https://gitlab.com/libeigen/eigen.git). Both the `Eigen` and `unsupported` directories should be included.
 
 FreeType2 must be installed on the system (`brew install freetype`) and also cross compiled for iOS. The [freetype2-ios](https://github.com/cdave1/freetype2-ios) repository contains a script to do this easily.
